@@ -4,7 +4,7 @@
   --cornsilk: #fefae0ff;
   --papaya-whip: #faedcdff;
   --fawn: #d4a373ff;
-  --rich-black-fogra-39: #0b090aff;
+  --rich-black-fogra-39: #0b090a;
   --eerie-black: #161a1dff;
   --blood-red: #660708ff;
   --ruby-red: #a4161aff;
@@ -14,4 +14,64 @@
   --light-gray: #d3d3d3ff;
   --cultured: #f5f3f4ff;
   --white: #ffffffff;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  margin: 0%;
+}
+
+/*banner style */
+
+.search-banner {
+  margin-top: 20rem;
+  height: 40rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: linear-gradient(
+      to top,
+      rgba(20, 20, 20, 0.7),
+      rgba(133, 133, 133, 0.2)
+    ),
+    url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.search-banner:hover {
+  background-image: url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
+  cursor: pointer;
+}
+
+.banner-title {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  margin: 0%;
+  text-align: center;
+}
+
+.banner-info {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin: 0%;
+  text-align: center;
+}
+.input-container {
+  width: 80%;
+  flex-direction: row;
+  display: flex;
 }
