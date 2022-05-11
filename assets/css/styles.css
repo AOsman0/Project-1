@@ -75,3 +75,6 @@ body {
   flex-direction: row;
   display: flex;
 }
+#input-text {
+  text-align: center;
+}
