@@ -15,3 +15,56 @@
   --cultured: #f5f3f4ff;
   --white: #ffffffff;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.quotes-header {
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+}
+
+.plus-icon {
+  margin-left: 90rem;
+  color: green;
+  background-color: grey;
+  font-size: 1.5rem;
+}
+
+.refresh-icon {
+  color: white;
+  background-color: grey;
+  font-size: 1.5rem;
+}
+
+.quotes-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  border-style: solid;
+  border-color: white;
+  background-color: black;
+}
+
+.quotes-details {
+  text-decoration: underline;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  background-color: black;
+}
+
+@media screen and (max-width: 570px) {
+  .plus-icon {
+   
+  }
+  .refresh-icon {
+  
+  }
+}
