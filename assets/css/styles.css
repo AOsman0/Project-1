@@ -1,0 +1,85 @@
+:root {
+  --pale-spring-bud: #ccd5aeff;
+  --pale-spring-bud-2: #e9edc9ff;
+  --cornsilk: #fefae0ff;
+  --papaya-whip: #faedcdff;
+  --fawn: #d4a373ff;
+  --rich-black-fogra-39: #0b090aff;
+  --eerie-black: #161a1dff;
+  --blood-red: #660708ff;
+  --ruby-red: #a4161aff;
+  --carnelian: #ba181bff;
+  --imperial-red: #e5383bff;
+  --black-shadows: #b1a7a6ff;
+  --light-gray: #d3d3d3ff;
+  --cultured: #f5f3f4ff;
+  --white: #ffffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.quotes-header {
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  text-decoration: underline;
+  text-transform: uppercase;
+  padding: 1rem;
+  text-shadow: -0.6rem 0.4rem 0.8rem;
+}
+
+.button-icons {
+  position: absolute;
+  left: 134rem;
+  top: 1rem;
+}
+
+.plus-icon {
+  color: green;
+  background-color: grey;
+  font-size: 1.5rem;
+  width: 4rem;
+  height: 3rem;
+}
+
+.refresh-icon {
+  color: white;
+  background-color: grey;
+  font-size: 1.5rem;
+  width: 4rem;
+  height: 3rem;
+}
+
+.quotes-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  background-color: black;
+  letter-spacing: 0.2rem;
+}
+
+.quotes-details {
+  text-decoration: underline;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  background-color: black;
+  text-shadow: 0.6rem 0.4rem 0.8rem;
+  border-style: solid;
+  border-color: whitesmoke;
+}
+
+@media screen and (max-width: 1000px) {
+  .button-icons {
+    position: absolute;
+    left: 20rem;
+  }
+}
