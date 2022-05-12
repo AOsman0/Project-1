@@ -60,6 +60,11 @@ body {
 }
 /* end header style */
 /* start quotes style*/
+
+#quotes-section {
+  position: relative;
+}
+
 .quotes-header {
   font-size: 2rem;
   background-color: black;
@@ -199,4 +204,3 @@ body {
     margin: 0;
   }
 }
-
