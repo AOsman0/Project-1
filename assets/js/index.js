@@ -1,28 +1,19 @@
-const main = document.getElementById("main");
+const mainElement = document.getElementById("main");
 
 const renderSearchBanner = () => {
-  const section = document.createElement("section");
-  section.setAttribute("class", "search-banner");
-  const title = document.createElement("h1");
-  title.setAttribute("class", "banner-title");
-  title.textContent = "library of knowledge";
+  $("#main").append(` <section class="search-banner">
+      <h1 class="banner-title">library of Knowledge</h1>
+      <h2 class="banner-info">Enter Author/Book name</h2>
 
-  const info = document.createElement("h2");
-  info.setAttribute("class", "banner-info");
-  info.textContent = "Enter Author/Book name";
-
-  const inputDiv = document.createElement("div");
-  inputDiv.setAttribute("class", "input-container");
-
-  const input = document.createElement("input");
-  input.setAttribute("class", "input is-rounded");
-  input.setAttribute("type", "text");
-  input.setAttribute("placeholder", "search");
-  input.setAttribute("id", "input-text");
-
-  inputDiv.append(input);
-  section.append(title, info, inputDiv);
-  main.append(section);
+      <div class="input-container">
+        <input
+          class="input is-rounded"
+          type="text"
+          placeholder="search"
+          id="input-text"
+        />
+      </div>
+    </section>`);
 };
 const onLoad = () => {
   renderSearchBanner();
