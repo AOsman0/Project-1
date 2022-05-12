@@ -23,7 +23,7 @@ html {
 }
 body {
   margin: 0%;
-  background-color: var(--black-shadows);
+  background-color: white;
 }
 /* start header style */
 .header {
@@ -199,4 +199,97 @@ body {
     margin: 0;
   }
 }
+/* start of about me styling*/
 
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10rem;
+  height: 50rem;
+  width: 70rem;
+}
+
+.myClass {
+  height: 300px;
+}
+
+.profile-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  margin: 5%;
+  background-color: var(--black-shadows);
+  border-radius: 10px;
+  border-color: black;
+  border: bold;
+}
+
+h1 {
+  position: relative;
+  font-size: 6vw;
+  color: rgb(101, 122, 192);
+
+  
+  text-transform: uppercase;
+  margin-left: 10rem;
+  margin-top: 5rem ;
+}
+
+
+.align-div-end {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.align-div-start {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.profile-icon {
+  margin: 20px;
+  margin-left: 3rem;
+}
+.profile-icon a {
+  text-decoration: none;
+  color: rgb(101, 122, 192);
+}
+.profile-icon:hover a {
+  cursor: pointer;
+  color: rgb(0, 2, 2);
+}
+.profile-icon i {
+  font-size: 3.5rem;
+}
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+
+  justify-content: center;
+}
+.title {
+  font-size: 40px;
+  color: rgb(101, 122, 192);
+}
+.content {
+  font-size: 20px;
+  margin-top: 5rem;
+}
+.media-content {
+  font-size: 40px;
+}
+
+.card {
+  width: 100rem;
+  height: 100rem;
+}
+.media-content {
+  height: 20px;
+}
+/*end of about me
