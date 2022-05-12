@@ -63,6 +63,12 @@ body {
 
 #quotes-section {
   position: relative;
+  background-color: black;
+}
+
+.quotes-container {
+  width: 80%;
+  margin: auto;
 }
 
 .quotes-header {
