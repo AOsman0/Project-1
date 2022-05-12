@@ -15,3 +15,30 @@
   --cultured: #f5f3f4ff;
   --white: #ffffffff;
 }
+
+.footer-container {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--cultured);
+  padding: 20px;
+  text-align: center;
+  background-color: #161a1dff;
+  width: 100%;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 1rem;
+  border: #b1a7a6ff solid 3px;
+  color: var(--black-shadows);
+  border-radius: 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: grey;
+  color: #161a1dff;
+  cursor: pointer;
+}
