@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
@@ -17,6 +18,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,14 +53,53 @@
     <main>
       <section id="quotes-section">
         <!-- quotes section in here -->
+        <div class="quotes-container">
+          <div class="quotes-head">
+            <h2 class="quotes-header">
+              Quotes
+              <div class="button-icons">
+                <button class="plus-icon">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button class="refresh-icon">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </di>
+            </h2>
+          </div>
+
+          <div class="quotes-info">
+            <p class="quotes-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Excepturi mollitia, nemo numquam alias itaque tenetur nesciunt.
+              Neque alias, iure labore nostrum nam quo. Optio, animi rerum. Modi
+              officiis minus placeat!
+            </p>
+            <h3 class="quotes-details">Source:</h3>
+          </div>
+        </div>
       </section>
-      <banner class="search-banner">
+      <section class="search-banner">
         <!-- all elements for banner in here -->
-      </banner>
+        <h1 class="banner-title">library of Knowledge</h1>
+        <h2 class="banner-info">Enter Author/Book name</h2>
+        <!-- input element for searching book/author -->
+        <div class="input-container">
+          <input
+            class="input is-rounded"
+            type="text"
+            placeholder="search"
+            id="input-text"
+          />
+        </div>
+      </section>
     </main>
-    <footer class="footer">
-      <!-- footer elements goes in here -->
-    </footer>
+    <div class="footer-container">
+      <div class="form-submit">
+        <a class="btn" href="./about-us.html"> about us</a>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/index.js"></script>
