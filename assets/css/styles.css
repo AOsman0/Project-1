@@ -54,7 +54,7 @@ html {
 .nav-anchor {
   margin-right: 4rem;
   text-decoration: none;
-  color: var(--white);
+  color: #d3d3d3ff;
 }
 
 @media screen and (max-width: 570px) {
