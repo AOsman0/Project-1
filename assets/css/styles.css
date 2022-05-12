@@ -22,6 +22,7 @@ html {
 
 .header {
   background-color: #161a1dff;
+  border: #b1a7a6ff solid 3px;
 }
 
 .nav-container {
@@ -34,9 +35,8 @@ html {
 }
 
 .logo-image {
-  width: 6.4rem;
-  height: 6.4rem;
-  object-fit: contain;
+  width: 12rem;
+  height: 12rem;
 }
 
 .nav-link {
@@ -51,6 +51,19 @@ html {
   justify-content: space-between;
 }
 
-.navlink {
+.nav-anchor {
   margin-right: 4rem;
+  text-decoration: none;
+  color: var(--white);
+}
+
+@media screen and (max-width: 570px) {
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-anchor {
+    margin: 0;
+  }
 }
