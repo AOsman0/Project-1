@@ -28,19 +28,31 @@ html {
   font-size: 2rem;
   background-color: black;
   color: white;
+  text-decoration: underline;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.button-icons {
+  position: absolute;
+  left: 134rem;
+  top: 1rem;
 }
 
 .plus-icon {
-  margin-left: 90rem;
   color: green;
   background-color: grey;
   font-size: 1.5rem;
+  width: 4rem;
+  height: 3rem;
 }
 
 .refresh-icon {
   color: white;
   background-color: grey;
   font-size: 1.5rem;
+  width: 4rem;
+  height: 3rem;
 }
 
 .quotes-text {
@@ -48,8 +60,9 @@ html {
   font-size: 1.5rem;
   color: white;
   border-style: solid;
-  border-color: white;
+  border-color: rgb(255, 255, 255);
   background-color: black;
+  letter-spacing: 0.2rem;
 }
 
 .quotes-details {
@@ -60,11 +73,9 @@ html {
   background-color: black;
 }
 
-@media screen and (max-width: 570px) {
-  .plus-icon {
-   
-  }
-  .refresh-icon {
-  
+@media screen and (max-width: 1000px) {
+  .button-icons {
+    position: absolute;
+    left: 20rem;
   }
 }
