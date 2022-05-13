@@ -1,5 +1,12 @@
 const quotesSection = document.getElementById("quotes-section");
 const mainElement = document.getElementById("main");
+const plusButtonGreen = document.getElementById("green-tick");
+
+const plusButton = () => {
+  console.log("plus-button-clicked" + plusButtonGreen);
+};
+
+const 
 
 const renderQuotesSection = () => {
   $("#main").append(`<section id="quotes-section">
@@ -8,10 +15,10 @@ const renderQuotesSection = () => {
        <h2 class="quotes-header">
          Quotes
          <div class="button-icons">
-           <button class="plus-icon">
+           <button class="plus-icon" id="green-tick">
              <i class="fa-solid fa-plus"></i>
            </button>
-           <button class="refresh-icon">
+           <button class="refresh-icon" id="refresh-icon">
              <i class="fa-solid fa-arrows-rotate"></i>
            </button>
          </div>
@@ -28,6 +35,20 @@ const renderQuotesSection = () => {
      </div>
    </div>
  </section>`);
+
+  $("#green-tick").click(plusButton);
+  $("#refresh-icon").click(renderQuotesSection);
+
+  setLocalStorageTick();
+  setLocalStorageRefresh();
+};
+
+const setLocalStorageTick = () => {
+  localStorage.setItem("#green-tick", JSON.stringify());
+};
+
+const setLocalStorageRefresh = () => {
+  localStorage.setItem("#refresh-icon".JSON.stringify());
 };
 
 const onLoad = () => {
