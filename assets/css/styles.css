@@ -111,7 +111,7 @@ body {
 /*start banner style */
 .search-banner {
   margin-top: 20rem;
-  height: 40rem;
+  height: 60rem;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -150,12 +150,16 @@ body {
   text-align: center;
 }
 .input-container {
-  width: 80%;
+  width: 50%;
   flex-direction: row;
   display: flex;
+  margin-top: 2rem;
 }
 #input-text {
   text-align: center;
+  height: 7.5rem;
+  font-size: 3rem;
+  padding: 0%;
 }
 /* end of banner style */
 /* start of footer styles */
@@ -199,4 +203,3 @@ body {
     margin: 0;
   }
 }
-
