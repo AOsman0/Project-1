@@ -205,7 +205,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10rem;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
   height: 50rem;
   width: 70rem;
   box-shadow: 1rem 1rem 3rem 3rem  #0b090aff;
