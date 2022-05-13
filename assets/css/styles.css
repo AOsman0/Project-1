@@ -208,6 +208,12 @@ body {
   margin-top: 10rem;
   height: 50rem;
   width: 70rem;
+  box-shadow: 1rem 1rem 3rem 3rem  #0b090aff;
+}
+.main-section:hover{
+    height: 50rem;
+    width:90rem;
+    box-shadow: 2rem 2rem 3rem 3rem  #0b090aff;
 }
 
 .myClass {
@@ -224,7 +230,11 @@ body {
   border-radius: 10px;
   border-color: black;
   border: bold;
-}
+  
+ }
+/* .profile-section:hover{
+    box-shadow: 1rem 1rem 1rem 1rem  #0b090aff;
+} */ 
 
 h1 {
   position: relative;
