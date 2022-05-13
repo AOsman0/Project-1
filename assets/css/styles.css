@@ -14,6 +14,17 @@
   --light-gray: #d3d3d3ff;
   --cultured: #f5f3f4ff;
   --white: #ffffffff;
+  --desert-sand: #edc4b3ff;
+  --tumbleweed: #e6b8a2ff;
+  --tumbleweed-2: #deab90ff;
+  --antique-brass: #d69f7eff;
+  --antique-brass-2: #cd9777ff;
+  --antique-brass-3: #c38e70ff;
+  --cafe-au-lait: #b07d62ff;
+  --brown-sugar: #9d6b53ff;
+  --coffee: #8a5a44ff;
+  --bole: #774936ff;
+  --vivid-tangerine: #ffa69eff;
 }
 * {
   box-sizing: border-box;
@@ -23,12 +34,12 @@ html {
 }
 body {
   margin: 0%;
-  background-color: var(--black-shadows);
+  background-color: white;
 }
 /* start header style */
 .header {
-  background-color: #161a1dff;
-  border: #b1a7a6ff solid 3px;
+  background-color: var(--brown-sugar);
+  border: var(--bole);
 }
 .nav-container {
   display: flex;
@@ -56,13 +67,17 @@ body {
 .nav-anchor {
   margin-right: 4rem;
   text-decoration: none;
-  color: #d3d3d3ff;
+  color: white;
+}
+.nav-anchor:hover {
+  text-decoration: none;
+  color: var(--fawn);
 }
 /* end header style */
 /* start quotes style*/
 .quotes-header {
   font-size: 2rem;
-  background-color: black;
+  background-color: var(--antique-brass-3);
   color: white;
   text-decoration: underline;
   text-transform: uppercase;
@@ -93,8 +108,8 @@ body {
   font-size: 1.5rem;
   color: white;
   border-style: solid;
-  border-color: rgb(255, 255, 255);
-  background-color: black;
+  border-color: var(--cafe-au-lait);
+  background-color: var(--antique-brass-2);
   letter-spacing: 0.2rem;
 }
 .quotes-details {
@@ -102,10 +117,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   color: white;
-  background-color: black;
+  background-color: var(--antique-brass);
   text-shadow: 0.6rem 0.4rem 0.8rem;
   border-style: solid;
-  border-color: whitesmoke;
+  border-color: var(--cafe-au-lait);
 }
 /* end quotes style */
 /*start banner style */
@@ -164,27 +179,27 @@ body {
 /* end of banner style */
 /* start of footer styles */
 .footer-container {
-  margin-top: 10rem;
+  margin-top: 16.5rem;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--cultured);
   padding: 20px;
   text-align: center;
-  background-color: #161a1dff;
+  background-color: var(--brown-sugar);
+  border: 1px solid var(--bole);
   width: 100%;
 }
 .btn {
   font-size: 1rem;
   padding: 1rem;
-  border: #b1a7a6ff solid 3px;
-  color: var(--black-shadows);
+  border: var(--fawn) solid 3px;
+  color: var(--antique-brass);
   border-radius: 4rem;
   text-decoration: none;
   text-transform: uppercase;
 }
 .btn:hover {
-  background-color: grey;
-  color: #161a1dff;
+  background-color: var(--bole);
+  color: white;
   cursor: pointer;
 }
 /* end of footer styles */
