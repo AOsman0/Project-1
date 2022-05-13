@@ -225,7 +225,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 2%;
-  margin: 5%;
+  margin: 2%;
   background-color: var(--black-shadows);
   border-radius: 10px;
   border-color: black;
@@ -238,13 +238,13 @@ body {
 
 h1 {
   position: relative;
-  font-size: 6vw;
-  color: rgb(101, 122, 192);
+  font-size: 3vw;
+  color: rgba(0, 0, 0, 0.71);
 
   
   text-transform: uppercase;
-  margin-left: 10rem;
-  margin-top: 5rem ;
+  margin-left: 5rem;
+  margin-top: 10rem ;
 }
 
 
@@ -300,6 +300,7 @@ h1 {
   height: 100rem;
 }
 .media-content {
-  height: 20px;
+  height: 1rem;
 }
+
 /*end of about me
