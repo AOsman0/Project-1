@@ -1,7 +1,25 @@
+render-quotes
 //const quotesSection = document.getElementById("quotes-section");
 const mainElement = document.getElementById("main");
 const plusButtonGreen = document.getElementById("green-tick");
 //const refreshIcon = document.getElementById("refresh-icon");
+
+const renderSearchBanner = () => {
+  $("#main").append(` <section class="search-banner">
+      <h1 class="banner-title">library of Knowledge</h1>
+      <h2 class="banner-info">Enter Author/Book name</h2>
+
+      <div class="input-container">
+        <input
+          class="input is-rounded"
+          type="text"
+          placeholder="search"
+          id="input-text"
+        />
+      </div>
+    </section>`);
+};
+
 
 const plusButton = () => {
   console.log("plus-button-clicked" + plusButtonGreen);
@@ -70,10 +88,11 @@ const renderQuotesSection = (quoteArray) => {
   $("#green-tick").click(plusButton);
   $("#refresh-icon").click(refreshButtonClick);
 };
-
 const onLoad = () => {
-  fetchQuotesData(); // this function gets quote from the api and then renders the quote section, will be appended to main
+  renderSearchBanner();
+    fetchQuotesData(); // this function gets quote from the api and then renders the quote section, will be appended to main
   // renderBannerSection(); // renders the banner section, will be appended to main
+  
 };
 
 window.addEventListener("load", onLoad);
