@@ -12,7 +12,7 @@ const refreshButtonClick = () => {
   const quotesSection = document.getElementById("quotes-section");
   console.log("refresh-clicked" + refreshIcon);
   if (refreshIcon) {
-    console.log("enterifconditon");
+    console.log("enterifconditions");
     quotesSection.remove();
     fetchQuotesData();
   }
