@@ -1,14 +1,48 @@
-const quotesSection = document.getElementById("quotes-section");
+//const quotesSection = document.getElementById("quotes-section");
 const mainElement = document.getElementById("main");
 const plusButtonGreen = document.getElementById("green-tick");
+//const refreshIcon = document.getElementById("refresh-icon");
 
 const plusButton = () => {
   console.log("plus-button-clicked" + plusButtonGreen);
 };
 
-const 
+const refreshButtonClick = () => {
+  const refreshIcon = document.getElementById("refresh-icon");
+  const quotesSection = document.getElementById("quotes-section");
+  console.log("refresh-clicked" + refreshIcon);
+  if (refreshIcon) {
+    console.log("enterifconditon");
+    quotesSection.remove();
+    fetchQuotesData();
+  }
+};
 
-const renderQuotesSection = () => {
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Host": "quotelibapi.p.rapidapi.com",
+    "X-RapidAPI-Key": "565934b5f7msh8a38532c8b6c6c6p156ee2jsn68b76c63d372",
+  },
+};
+
+const fetchQuotesData = () => {
+  fetch("https://quotelibapi.p.rapidapi.com/quote", options)
+    .then((response) => response.json())
+    .then((response) => {
+      localStorage.setItem("quote", JSON.stringify(response));
+      renderQuotesSection(response);
+      console.log(
+        "this is the value of the key: " + localStorage.getItem("quote")
+      );
+    })
+
+    .catch((err) => console.error(err));
+};
+
+const renderQuotesSection = (quoteArray) => {
+  console.log("abc" + JSON.stringify(quoteArray[0]));
+  const quote = quoteArray[0];
   $("#main").append(`<section id="quotes-section">
    <div class="quotes-container">
      <div class="quotes-head">
@@ -26,33 +60,20 @@ const renderQuotesSection = () => {
      </div>
      <div class="quotes-info">
        <p class="quotes-text">
-         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-         Excepturi mollitia, nemo numquam alias itaque tenetur nesciunt.
-         Neque alias, iure labore nostrum nam quo. Optio, animi rerum. Modi
-         officiis minus placeat!
+         ${quote.quote_text}
        </p>
-       <h3 class="quotes-details">Source:</h3>
+       <h3 class="quotes-details">${quote.author}</h3>
      </div>
    </div>
  </section>`);
 
   $("#green-tick").click(plusButton);
-  $("#refresh-icon").click(renderQuotesSection);
-
-  setLocalStorageTick();
-  setLocalStorageRefresh();
-};
-
-const setLocalStorageTick = () => {
-  localStorage.setItem("#green-tick", JSON.stringify());
-};
-
-const setLocalStorageRefresh = () => {
-  localStorage.setItem("#refresh-icon".JSON.stringify());
+  $("#refresh-icon").click(refreshButtonClick);
 };
 
 const onLoad = () => {
-  renderQuotesSection();
+  fetchQuotesData(); // this function gets quote from the api and then renders the quote section, will be appended to main
+  // renderBannerSection(); // renders the banner section, will be appended to main
 };
 
 window.addEventListener("load", onLoad);
