@@ -75,6 +75,17 @@ body {
 }
 /* end header style */
 /* start quotes style*/
+
+#quotes-section {
+  position: relative;
+  background-color: black;
+}
+
+.quotes-container {
+  width: 80%;
+  margin: auto;
+}
+
 .quotes-header {
   font-size: 2rem;
   background-color: var(--antique-brass-3);
