@@ -187,28 +187,7 @@ body {
   font-size: 3rem;
   padding: 0%;
 }
-.results-banner {
-  margin-top: 10rem;
-  height: 10rem;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: baseline;
-  align-items: center;
-  background-image: linear-gradient(
-      to top,
-      rgba(20, 20, 20, 0.7),
-      rgba(133, 133, 133, 0.2)
-    ),
-    url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.results-banner:hover {
-  background-image: url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
-  cursor: pointer;
-}
+
 .images 
 /* end of banner style */
 /* start of footer styles */

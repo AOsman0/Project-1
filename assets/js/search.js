@@ -9,6 +9,7 @@ let image = "";
 let publisher = "";
 let description = "";
 let bookLink = "";
+let trimmedDescription = "";
 
 // function to handle form submission
 const handleFormSubmit = (event) => {
@@ -57,10 +58,11 @@ const fetchBookData = () => {
         }
         console.log(image);
         description = items[i].volumeInfo.description;
-        console.log(description);
+        trimmedDescription = description.slice(0, 100);
+        console.log(trimmedDescription);
         bookLink = items[i].volumeInfo.previewLink;
         console.log(bookLink);
-        let bookResults = [title, author, publisher, image, description];
+        let bookResults = [title, author, publisher, image, trimmedDescription];
         console.log("book results" + bookResults);
         // render results card
         renderResult(bookResults);
@@ -101,16 +103,19 @@ const renderResult = () => {
         />
         <span class="card-title">${title}</span>
         <a class="btn-floating halfway-fab waves-effect waves-light red"
-          ><i class="material-icons" id="add">add</i></a
+          ><i class="material-icons" id="add${i}">add</i></a
         >
       </div>
       <div class="card-content">
-        <p>Author: ${author}</p>
-        <p>publisher: ${publisher}</p>
+        <p><b>AUTHOR:</b> ${author}</p>
+        <p><b>PUBLISHER: </b> ${publisher}</p>
         <p>
-          description: ${description}
+        <b>DESCRIPTION: </b> ${trimmedDescription} ...
         </p>
+        <div class="button-container">
         <a class="waves-effect waves-light btn-small">More info</a>
+        <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
+        </div>
       </div>
     </div>
   </div>
