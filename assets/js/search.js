@@ -23,7 +23,26 @@ const handleFormSubmit = (event) => {
     alert("enter valid search");
   }
 };
-
+const renderSearchBanner = () => {
+  $("#main").append(` <section class="results-banner">
+      <form class="input-container"  id="form">
+        <input
+          class="input is-rounded"
+          type="text"
+          placeholder="search"
+          id="input-text"
+         
+         
+        />
+        <button type="submit" id="submit" class="btn"
+        >submit</button>
+      </form>
+    </section>`);
+  form.addEventListener("submit", handleFormSubmit);
+};
+const initialiseLocalStorage = () => {
+  console.log("local storage needs to be done");
+};
 const onLoad = () => {
   //initialise feedback results
   initialiseLocalStorage();
