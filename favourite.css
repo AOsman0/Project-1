@@ -38,3 +38,7 @@
 .favourite-title {
   right: auto;
 }
+hr {
+  border: 5px;
+  color: black;
+}
