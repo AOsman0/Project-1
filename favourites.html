@@ -7,7 +7,13 @@
     <title>Home</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
     <link
@@ -24,20 +30,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="favourite.css" />
   </head>
   <body>
     <header class="header">
       <nav class="nav-container">
         <!-- nav link with icon -->
         <div class="nav-link">
-          <div class="navlink">
-            <a class="nav-anchor" href="./index.html"
-              ><i class="fa-solid fa-book-open-reader"></i
-            ></a>
-          </div>
-          <div class="navlink">
-            <a href="./index.html">LIBRARY OF KNOWLEDGE</a>
-          </div>
+          <a class="nav-anchor" href="./index.html"
+            ><i class="fa-solid fa-book-open-reader"></i
+          ></a>
         </div>
 
         <!-- favourites link -->
@@ -48,22 +50,37 @@
             <a class="nav-anchor" href="./favourites.html">FAVOURITES</a>
           </div>
           <div class="nav-link">
-            <a href="./about-us.html">ABOUT US</a>
+            <a class="nav-anchor" href="./about-us.html">ABOUT US</a>
           </div>
         </div>
       </nav>
     </header>
+
     <main>
-      <section id="quotes-section">
-        <!-- quotes section in here -->
-      </section>
-      <banner class="search-banner">
-        <!-- all elements for banner in here -->
-      </banner>
+      <div class="col s12 m7">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img class="image" src="./assets/images/mountain.jpg" />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-    <footer class="footer">
-      <!-- footer elements goes in here -->
-    </footer>
+    <div class="footer-container">
+      <div class="form-submit">
+        <a class="btn" href="./about-us.html"> about us</a>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/index.js"></script>

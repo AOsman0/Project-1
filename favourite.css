@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  flex-direction: row;
+}
+.card-image {
+  height: 10rem;
+  object-fit: cover;
+}
+.image {
+  height: 100%;
+}
