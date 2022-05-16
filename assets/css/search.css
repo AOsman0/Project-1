@@ -1,6 +1,13 @@
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-around;
+}
 .card {
-  width: 25%;
-  margin: 5rem;
+  width: 30rem;
+  margin: 2rem;
 }
 .card-footer {
   background-color: rgb(231, 230, 230);
