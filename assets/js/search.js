@@ -17,11 +17,51 @@ const handleFormSubmit = (event) => {
   if (search) {
     // build object with full name and results
     console.log("good search");
-
-    //clear feedbackResults
+    // fetch data from API
+    fetchBookData();
   } else {
     alert("enter valid search");
   }
+};
+const fetchBookData = () => {
+  const search = document.getElementById("input-text").value;
+  console.log(search);
+  const currentSearchURL = `https://www.googleapis.com/books/v1/volumes?q=${search}`;
+
+  console.log(currentSearchURL);
+  let items = [];
+
+  fetch(currentSearchURL)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (result) {
+      items = result.items;
+      console.log(items);
+      // gather the info needed for 5 cards
+      for (i = 0; i < 5; i++) {
+        title = items[i].volumeInfo.title;
+        console.log(title);
+        author = items[i].volumeInfo.authors;
+        console.log(author);
+        publisher = items[i].volumeInfo.publisher;
+        console.log(publisher);
+        image = items[i].volumeInfo.imageLinks.thumbnail;
+        console.log(image);
+        description = items[i].volumeInfo.description;
+        console.log(description);
+        let bookResults = [title, author, publisher, image, description];
+        console.log("book results" + bookResults);
+        // render results
+      }
+    }),
+    function (error) {
+      console.log(error);
+    };
+
+  // from the response cherry pick Title, AUTHOR, PUBLISHER and IMAGE
+
+  // render results cards
 };
 const renderSearchBanner = () => {
   $("#main").append(` <section class="results-banner">
