@@ -1,11 +1,13 @@
 //TODO find a way to link home page to search page
 const mainElement = document.getElementById("main");
+const resultsSection = document.getElementById("results");
 const API_KEY = "AIzaSyAb1sWH5SP_pa3SpuWv9TXLKXk9X2NWwFE";
 let title = "";
 let author = "";
 let image = "";
 let publisher = "";
 let description = "";
+let bookLink = "";
 
 // function to handle form submission
 const handleFormSubmit = (event) => {
@@ -39,33 +41,39 @@ const fetchBookData = () => {
       items = result.items;
       console.log(items);
       // gather the info needed for 5 cards
-      for (i = 0; i < 5; i++) {
+      for (i = 0; i < 10; i++) {
+        // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
         title = items[i].volumeInfo.title;
         console.log(title);
         author = items[i].volumeInfo.authors;
         console.log(author);
         publisher = items[i].volumeInfo.publisher;
         console.log(publisher);
-        image = items[i].volumeInfo.imageLinks.thumbnail;
+        if (!items[i].volumeInfo.imageLinks) {
+          image = ".assets / images / placeholder.png";
+        } else {
+          image = items[i].volumeInfo.imageLinks.thumbnail;
+        }
         console.log(image);
         description = items[i].volumeInfo.description;
         console.log(description);
+        bookLink = items[i].volumeInfo.previewLink;
+        console.log(bookLink);
         let bookResults = [title, author, publisher, image, description];
         console.log("book results" + bookResults);
-        // render results
+        // render results card
+        renderResult(bookResults);
       }
     }),
     function (error) {
       console.log(error);
     };
 
-  // from the response cherry pick Title, AUTHOR, PUBLISHER and IMAGE
-
-  // render results cards
+  // function to render results cards
 };
-const renderSearchBanner = () => {
+const renderResultsBanner = () => {
   $("#main").append(` <section class="results-banner">
-      <form class="input-container"  id="form">
+            <form class="input-container"  id="form">
         <input
           class="input is-rounded"
           type="text"
@@ -80,6 +88,33 @@ const renderSearchBanner = () => {
     </section>`);
   form.addEventListener("submit", handleFormSubmit);
 };
+// function to render results banner
+// TODO limit characters in description
+const renderResult = () => {
+  $("#results").append(`<div class="row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-image">
+        <img
+          src=${image}
+        />
+        <span class="card-title">${title}</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"
+          ><i class="material-icons">add</i></a
+        >
+      </div>
+      <div class="card-content">
+        <p>Author: ${author}</p>
+        <p>publisher: ${publisher}</p>
+        <p>
+          description: ${description}
+        </p>
+        <a class="waves-effect waves-light btn-small" href="${bookLink}">More info</a>
+      </div>
+    </div>
+  </div>
+</div>`);
+};
 const initialiseLocalStorage = () => {
   console.log("local storage needs to be done");
 };
@@ -87,6 +122,6 @@ const onLoad = () => {
   //initialise feedback results
   initialiseLocalStorage();
   //   render search banner
-  renderSearchBanner();
+  renderResultsBanner();
 };
 window.addEventListener("load", onLoad);
