@@ -1,6 +1,14 @@
+.book-favourites {
+  margin-top: 15rem;
+}
+
 .card {
   display: flex;
   flex-direction: row;
+}
+
+.card-content {
+  font-size: 2rem;
 }
 .card-image {
   height: 15rem;
@@ -30,15 +38,14 @@
   /* justify-content: space-between; */
   margin-top: 5rem;
   align-items: baseline;
-  justify-content: center;
+  justify-content: space-between;
 }
 .fav-button {
-  margin-right: 10rem;
+  margin-left: 30rem;
 }
+.button-container {
+}
+
 .favourite-title {
-  right: auto;
-}
-hr {
-  border: 5px;
-  color: black;
+  margin-right: 5rem;
 }
