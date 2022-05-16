@@ -1,4 +1,3 @@
-render-quotes
 //const quotesSection = document.getElementById("quotes-section");
 const mainElement = document.getElementById("main");
 const plusButtonGreen = document.getElementById("green-tick");
@@ -19,7 +18,6 @@ const renderSearchBanner = () => {
       </div>
     </section>`);
 };
-
 
 const plusButton = () => {
   console.log("plus-button-clicked" + plusButtonGreen);
@@ -90,9 +88,8 @@ const renderQuotesSection = (quoteArray) => {
 };
 const onLoad = () => {
   renderSearchBanner();
-    fetchQuotesData(); // this function gets quote from the api and then renders the quote section, will be appended to main
+  fetchQuotesData(); // this function gets quote from the api and then renders the quote section, will be appended to main
   // renderBannerSection(); // renders the banner section, will be appended to main
-  
 };
 
 window.addEventListener("load", onLoad);
