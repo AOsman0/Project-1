@@ -1,6 +1,7 @@
 //TODO find a way to link home page to search page
 const mainElement = document.getElementById("main");
 const resultsSection = document.getElementById("results");
+const addButton = document.getElementById("add");
 const API_KEY = "AIzaSyAb1sWH5SP_pa3SpuWv9TXLKXk9X2NWwFE";
 let title = "";
 let author = "";
@@ -82,7 +83,7 @@ const renderResultsBanner = () => {
          
          
         />
-        <button type="submit" id="submit" class="btn"
+        <button type="submit" id="submit" class="btn-large"
         >submit</button>
       </form>
     </section>`);
@@ -100,7 +101,7 @@ const renderResult = () => {
         />
         <span class="card-title">${title}</span>
         <a class="btn-floating halfway-fab waves-effect waves-light red"
-          ><i class="material-icons">add</i></a
+          ><i class="material-icons" id="add">add</i></a
         >
       </div>
       <div class="card-content">
@@ -109,14 +110,20 @@ const renderResult = () => {
         <p>
           description: ${description}
         </p>
-        <a class="waves-effect waves-light btn-small" href="${bookLink}">More info</a>
+        <a class="waves-effect waves-light btn-small">More info</a>
       </div>
     </div>
   </div>
 </div>`);
+  $("#add").click(addButtonClick);
 };
 const initialiseLocalStorage = () => {
   console.log("local storage needs to be done");
+};
+//function to add to favourite storage
+// TODO FIND A WAY TO TARGET ONLY ONE CARD ON EACH CLICK
+const addButtonClick = () => {
+  console.log("add-button-clicked" + addButton);
 };
 const onLoad = () => {
   //initialise feedback results
