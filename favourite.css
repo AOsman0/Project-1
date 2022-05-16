@@ -3,9 +3,38 @@
   flex-direction: row;
 }
 .card-image {
-  height: 10rem;
+  height: 15rem;
   object-fit: cover;
 }
 .image {
   height: 100%;
+  width: 100%;
+}
+.card-container {
+  width: 100rem;
+  margin-top: 5rem;
+}
+.card-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-stacked {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.favourite-banner {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  margin-top: 5rem;
+  align-items: baseline;
+  justify-content: center;
+}
+.fav-button {
+  margin-right: 10rem;
+}
+.favourite-title {
+  right: auto;
 }
