@@ -1,26 +1,14 @@
-//const quotesSection = document.getElementById("quotes-section");
 const mainElement = document.getElementById("main");
 const plusButtonGreen = document.getElementById("green-tick");
-//const refreshIcon = document.getElementById("refresh-icon");
 
-const renderSearchBanner = () => {
-  $("#main").append(` <section class="search-banner">
-      <h1 class="banner-title">library of Knowledge</h1>
-      <h2 class="banner-info">Enter Author/Book name</h2>
+const readFromLocalStorage = () => {
+  const fromLocalStorage = localStorage.getItem("quote");
 
-      <div class="input-container">
-        <input
-          class="input is-rounded"
-          type="text"
-          placeholder="search"
-          id="input-text"
-        />
-      </div>
-    </section>`);
+  console.log(fromLocalStorage);
 };
 
 const plusButton = () => {
-  console.log("plus-button-clicked" + plusButtonGreen);
+  readFromLocalStorage();
 };
 
 const refreshButtonClick = () => {
@@ -47,7 +35,7 @@ const fetchQuotesData = () => {
     .then((response) => response.json())
     .then((response) => {
       localStorage.setItem("quote", JSON.stringify(response));
-      renderQuotesSection(response);
+      renderLandingPage(response);
       console.log(
         "this is the value of the key: " + localStorage.getItem("quote")
       );
@@ -56,7 +44,7 @@ const fetchQuotesData = () => {
     .catch((err) => console.error(err));
 };
 
-const renderQuotesSection = (quoteArray) => {
+const renderLandingPage = (quoteArray) => {
   console.log("abc" + JSON.stringify(quoteArray[0]));
   const quote = quoteArray[0];
   $("#main").append(`<section id="quotes-section">
@@ -85,11 +73,23 @@ const renderQuotesSection = (quoteArray) => {
 
   $("#green-tick").click(plusButton);
   $("#refresh-icon").click(refreshButtonClick);
+
+  $("#main").append(` <section class="search-banner">
+  <h1 class="banner-title">library of Knowledge</h1>
+  <h2 class="banner-info">Enter Author/Book name</h2>
+
+  <div class="input-container">
+    <input
+      class="input is-rounded"
+      type="text"
+      placeholder="search"
+      id="input-text"
+    />
+  </div>
+</section>`);
 };
 const onLoad = () => {
-  renderSearchBanner();
-  fetchQuotesData(); // this function gets quote from the api and then renders the quote section, will be appended to main
-  // renderBannerSection(); // renders the banner section, will be appended to main
+  fetchQuotesData();
 };
 
 window.addEventListener("load", onLoad);
