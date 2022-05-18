@@ -1,10 +1,37 @@
 const mainElement = document.getElementById("main");
 const plusButtonGreen = document.getElementById("green-tick");
 
-const readFromLocalStorage = () => {
-  const fromLocalStorage = localStorage.getItem("quote");
+let favoritesList = [];
 
-  console.log(fromLocalStorage);
+const readFromLocalStorage = () => {
+  const currentQuote = localStorage.getItem("current-quote");
+  console.log("currentQuote: " + currentQuote);
+  const favoritesListFromLS = localStorage.getItem("favoriteQuotes");
+  // check if the favorites list is null or does it have any items
+  if (favoritesListFromLS === null || favoritesListFromLS === undefined) {
+    // when the list is null
+    // else push this item to the empty favorites list
+    // PARSE CURRENT QUOTE
+    const parsedCurrentQuote = JSON.stringify(JSON.parse(currentQuote));
+    favoritesList.push(parsedCurrentQuote);
+    // and then store it in the local storage
+    // parse favoriteList to string
+    localStorage.setItem("favoriteQuotes", JSON.stringify(favoritesList));
+    console.log("favoriteList: " + localStorage.getItem("favoriteQuotes"));
+  } else {
+    // when the list is not null
+    let parsedFavoriteList = JSON.parse(favoritesListFromLS);
+    console.log("parsedFavoriteList: " + parsedFavoriteList);
+
+    // lets push this quote to the favorites list
+    // parse current quote before we push it
+    const parsedCurrentQuote = JSON.parse(currentQuote);
+    parsedFavoriteList.push(currentQuote);
+
+    // store that list to the local storage
+    localStorage.setItem("favoriteQuotes", JSON.stringify(parsedFavoriteList));
+    console.log("favoriteList: " + localStorage.getItem("favoriteQuotes"));
+  }
 };
 
 const plusButton = () => {

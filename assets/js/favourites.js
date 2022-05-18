@@ -1,13 +1,10 @@
+const bannerElement = document.getElementById("banner");
+const bookElement = document.getElementById("book-btn");
+const quotesElement = document.getElementById("quotes-btn");
+const favouriteSection = document.getElementById("book-favourites");
 
-
-const bannerElement = document.getElementById('banner');
-const bookElement = document.getElementById('book-btn');
-const quotesElement = document.getElementById('quotes-btn');
-const favouriteSection = document.getElementById('book-favourites')
-
-
-const onload =  () => {
-    $("#banner").append(`     <div class="button-container">
+const onload = () => {
+  $("#banner").append(`     <div class="button-container">
     <a id="quotes-btn" class="fav-button waves-effect waves-light btn-large"
       ><i  class="material-icons right">cloud</i>Saved quotes</a
     >
@@ -17,22 +14,20 @@ const onload =  () => {
   </div>
   <div class="favourite-title">
     <h1 class="favo">FAVOURITES</h1>
-  </div>`)
+  </div>`);
   $("#book-btn").click(renderSavedBooks);
   $("#quotes-btn").click(renderSavedQuotes);
-
-}
+};
 
 const renderSavedBooks = () => {
-    //fetch data from local storage
+  //fetch data from local storage
 
-    //set forloop for number of sets in the local storage
+  //set forloop for number of sets in the local storage
 
+  // if saved quotes is rendered, clear it from page.
 
-    // if saved quotes is rendered, clear it from page.
-
-    //render book cards
-    $("#book-favourites").append(` <div class="card-container col s12 m7">
+  //render book cards
+  $("#book-favourites").append(` <div class="card-container col s12 m7">
     <div class="card horizontal">
       <div class="card-image">
         <img class="image" src="./assets/images/mountain.jpg" />
@@ -51,21 +46,18 @@ const renderSavedBooks = () => {
         </div>
       </div>
     </div>
-  </div>`)
-
-}
+  </div>`);
+};
 
 const renderSavedQuotes = () => {
+  //fetch data from local storage
 
-      //fetch data from local storage
+  //set forloop for number of sets in the local storage
 
-    //set forloop for number of sets in the local storage
+  // if saved quotes is rendered, clear it from page.
 
-
-    // if saved quotes is rendered, clear it from page.
-
-    //render book cards
-    $("#book-favourites").append(`   <div class="card-container col s12 m7">
+  //render book cards
+  $("#book-favourites").append(`   <div class="card-container col s12 m7">
     <div class="card horizontal">
       <!-- <div class="card-image">
         <img class="image" src="./assets/images/mountain.jpg" />
@@ -85,11 +77,7 @@ const renderSavedQuotes = () => {
         </div>
       </div>
     </div>
-  </div>`)
-    
-}
+  </div>`);
+};
 
-
-
-
-window.addEventListener('load', onload)
+window.addEventListener("load", onload);
