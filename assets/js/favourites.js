@@ -64,8 +64,8 @@ const fetchBooks = () => {
 };
 const fetchQuotes = () => {
   //fetch data from local storage
-  const savedQuotes = JSON.parse(localStorage.getItem("quote"));
-  console.log(savedQuotes);
+  const savedQuotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
+  console.log("saved quotes: " + savedQuotes);
 
   if (document.getElementById("book-favourites") !== null) {
     document.getElementById("book-favourites").remove();
@@ -80,10 +80,12 @@ const fetchQuotes = () => {
     // add this whole object to the currentSearchResults array
 
     // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
-    quote = savedQuotes[i].quote_text;
-    console.log(title);
-    author = savedQuotes[i].author;
-    console.log(author);
+    console.log("abc: " + savedQuotes[i]);
+    const temp = JSON.parse(savedQuotes[i]);
+    quote = temp.quote_text;
+    console.log("quote: " + quote);
+    author = temp.author;
+    console.log("author: " + author);
 
     let bookResults = [quote, author];
     console.log("book results" + bookResults);
@@ -132,7 +134,7 @@ const renderFavoriteQuotes = () => {
         <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
         <a
           class="delete-button btn-floating btn-small waves-effect waves-light red"
-          ><i class="material-icons">-</i></a
+          ><i id= "${i}" class="material-icons">-</i></a
         >
       </div>
     </div>
