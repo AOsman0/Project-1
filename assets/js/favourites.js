@@ -91,12 +91,11 @@ const fetchQuotes = () => {
     
   }
 };
+
 const renderFavoriteBooks = () => {
-
-
   // if saved quotes is rendered, clear it from page.
-
-  //render book cards
+  // render book cards
+  
   $("#book-favourites").append(` <div class="card-container col s12 m7">
     <div class="card horizontal">
       <div class="card-image">
@@ -107,7 +106,6 @@ const renderFavoriteBooks = () => {
           <p>title: ${title}</p>
           <p>author: ${author}</p>
         </div>
-
         <div class="card-action">
           <a class="waves-effect waves-light blue btn-small">read more</a>
           <a class="btn-floating btn-small waves-effect waves-light red"
@@ -131,17 +129,16 @@ const renderFavoriteQuotes = () => {
           <p>quotes: ${quote}</p>
           <p>author: ${author}</p>
         </div>
-
-        <div class="card-action">
-          <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
-          <a
-            class="delete-button btn-floating btn-small waves-effect waves-light red"
-            ><i class="material-icons">-</i></a
-          >
-        </div>
+       <div class="card-action">
+        <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
+        <a
+          class="delete-button btn-floating btn-small waves-effect waves-light red"
+          ><i class="material-icons">-</i></a
+        >
       </div>
     </div>
-  </div>`);
+  </div>
+</div>`);
 };
 
 
