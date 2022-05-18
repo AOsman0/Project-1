@@ -2,11 +2,13 @@ const bannerElement = document.getElementById("banner");
 const bookElement = document.getElementById("book-btn");
 const quotesElement = document.getElementById("quotes-btn");
 const favouriteSection = document.getElementById("book-favourites");
+const sectionElement = document.getElementById("favourite-section")
 
 let author = '';
 let title = '';
 let image = '';
 let bookLink = '';
+let quote = '';
 
 
 const onload = () => {
@@ -21,39 +23,71 @@ const onload = () => {
   <div class="favourite-title">
     <h1 class="favo">FAVOURITES</h1>
   </div>`);
-  $("#book-btn").click(renderSavedBooks);
-  $("#quotes-btn").click(renderSavedQuotes);
+  $("#book-btn").click(fetchBooks);
+  $("#quotes-btn").click(fetchQuotes);
 };
 
-const renderSavedBooks = () => {
+const fetchBooks = () => {
   //fetch data from local storage
-  const items = JSON.parse(localStorage.getItem('favoriteBook'));
-  console.log (items )
+  const savedBooks = JSON.parse(localStorage.getItem('favoriteBook'));
+  console.log (savedBooks )
 
- // own comments: i am going to get the data and 
+  if (document.getElementById("book-favourites") !== null) {
+    document.getElementById("book-favourites").remove();
+  }
+  // gather the info needed for 5 cards
+  $("#favourites-section").append(`<section id="book-favourites" class="book-favourites"></section>`);
 
   //set forloop for number of sets in the local storage
-  for (i = 0; i < items.length; i++) {
+  for (i = 0; i < savedBooks.length; i++) {
     // add this whole object to the currentSearchResults array
     
     // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
-    title = items[i].volumeInfo.title;
+    title = savedBooks[i].volumeInfo.title;
     console.log(title);
-    author = items[i].volumeInfo.authors;
+    author = savedBooks[i].volumeInfo.authors;
     console.log(author);
-    bookLink = items[i].volumeInfo.previewLink;
+    bookLink = savedBooks[i].volumeInfo.previewLink;
     console.log(bookLink);
     
     
-    if (!items[i].volumeInfo.imageLinks) {
+    if (!savedBooks[i].volumeInfo.imageLinks) {
       image = ".assets/images/placeholder.png";
     } else {
-      image = items[i].volumeInfo.imageLinks.thumbnail;
+      image = savedBooks[i].volumeInfo.imageLinks.thumbnail;
     }
     let bookResults = [title, author, image,];
     console.log("book results" + bookResults);
     // render results card
     renderFavoriteBooks(bookResults);
+    
+  }
+};
+const fetchQuotes = () => {
+  //fetch data from local storage
+  const savedQuotes = JSON.parse(localStorage.getItem('quote'));
+  console.log (savedQuotes )
+
+  if (document.getElementById("book-favourites") !== null) {
+    document.getElementById("book-favourites").remove();
+  }
+  // gather the info needed for 5 cards
+  $("#favourites-section").append(`<section id="book-favourites" class="book-favourites"></section>`);
+
+  //set forloop for number of sets in the local storage
+  for (i = 0; i < savedQuotes.length; i++) {
+    // add this whole object to the currentSearchResults array
+    
+    // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
+    quote = savedQuotes[i].quote_text;
+    console.log(title);
+    author = savedQuotes[i].author;
+    console.log(author);
+   
+    let bookResults = [quote, author,];
+    console.log("book results" + bookResults);
+    // render results card
+    renderFavoriteQuotes(bookResults);
     
   }
 };
@@ -85,14 +119,8 @@ const renderFavoriteBooks = () => {
   </div>`);
 };
 
-const renderSavedQuotes = () => {
-  //fetch data from local storage
-
-  //set forloop for number of sets in the local storage
-
-  // if saved quotes is rendered, clear it from page.
-
-  //render book cards
+const renderFavoriteQuotes = () => {
+ 
   $("#book-favourites").append(`   <div class="card-container col s12 m7">
     <div class="card horizontal">
       <!-- <div class="card-image">
@@ -100,8 +128,8 @@ const renderSavedQuotes = () => {
       </div> -->
       <div class="card-stacked">
         <div class="card-content">
-          <p>quotes</p>
-          <p>author</p>
+          <p>quotes: ${quote}</p>
+          <p>author: ${author}</p>
         </div>
 
         <div class="card-action">
