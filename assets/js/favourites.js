@@ -20,13 +20,6 @@ const onload = () => {
 };
 
 const renderSavedBooks = () => {
-  //fetch data from local storage
-
-  //set forloop for number of sets in the local storage
-
-  // if saved quotes is rendered, clear it from page.
-
-  //render book cards
   $("#book-favourites").append(` <div class="card-container col s12 m7">
     <div class="card horizontal">
       <div class="card-image">
@@ -34,8 +27,8 @@ const renderSavedBooks = () => {
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>title</p>
-          <p>author</p>
+          <p id="">title</p>
+          <p id="">author</p>
         </div>
 
         <div class="card-action">
@@ -50,34 +43,27 @@ const renderSavedBooks = () => {
 };
 
 const renderSavedQuotes = () => {
-  //fetch data from local storage
-
-  //set forloop for number of sets in the local storage
-
-  // if saved quotes is rendered, clear it from page.
-
-  //render book cards
   $("#book-favourites").append(`   <div class="card-container col s12 m7">
-    <div class="card horizontal">
-      <!-- <div class="card-image">
-        <img class="image" src="./assets/images/mountain.jpg" />
-      </div> -->
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>quotes</p>
-          <p>author</p>
-        </div>
+  <div class="card horizontal">
+    <!-- <div class="card-image">
+      <img class="image" src="./assets/images/mountain.jpg" />
+    </div> -->
+    <div class="card-stacked">
+      <div class="card-content">
+        <p id="quotes">quotes</p>
+        <p id="authors">author</p>
+      </div>
 
-        <div class="card-action">
-          <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
-          <a
-            class="delete-button btn-floating btn-small waves-effect waves-light red"
-            ><i class="material-icons">-</i></a
-          >
-        </div>
+      <div class="card-action">
+        <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
+        <a
+          class="delete-button btn-floating btn-small waves-effect waves-light red"
+          ><i class="material-icons">-</i></a
+        >
       </div>
     </div>
-  </div>`);
+  </div>
+</div>`);
 };
 
 window.addEventListener("load", onload);

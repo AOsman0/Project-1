@@ -1,5 +1,6 @@
 const mainElement = document.getElementById("main");
 const plusButtonGreen = document.getElementById("green-tick");
+const quotesSection = document.getElementById("quotes-section");
 
 let favoritesList = [];
 
@@ -40,11 +41,11 @@ const plusButton = () => {
 
 const refreshButtonClick = () => {
   const refreshIcon = document.getElementById("refresh-icon");
-  const quotesSection = document.getElementById("quotes-section");
+  const quotesContainer = document.getElementById("quotes-container");
   console.log("refresh-clicked" + refreshIcon);
   if (refreshIcon) {
     console.log("enterifconditions");
-    quotesSection.remove();
+    quotesContainer.remove();
     fetchQuotesData();
   }
 };
@@ -53,7 +54,7 @@ const options = {
   method: "GET",
   headers: {
     "X-RapidAPI-Host": "quotelibapi.p.rapidapi.com",
-    "X-RapidAPI-Key": "565934b5f7msh8a38532c8b6c6c6p156ee2jsn68b76c63d372",
+    "X-RapidAPI-Key": "48da7b9fcemshc5ff20a1dbaf8cap1255e2jsn3db6ac34e3d7",
   },
 };
 
@@ -61,7 +62,7 @@ const fetchQuotesData = () => {
   fetch("https://quotelibapi.p.rapidapi.com/quote", options)
     .then((response) => response.json())
     .then((response) => {
-      localStorage.setItem("quote", JSON.stringify(response));
+      localStorage.setItem("current-quote", JSON.stringify(response[0]));
       renderLandingPage(response);
       console.log(
         "this is the value of the key: " + localStorage.getItem("quote")
@@ -74,8 +75,8 @@ const fetchQuotesData = () => {
 const renderLandingPage = (quoteArray) => {
   console.log("abc" + JSON.stringify(quoteArray[0]));
   const quote = quoteArray[0];
-  $("#main").append(`<section id="quotes-section">
-   <div class="quotes-container">
+  $("#quotes-section").append(`
+   <div id="quotes-container" class="quotes-container">
      <div class="quotes-head">
        <h2 class="quotes-header">
          Quotes
@@ -96,24 +97,10 @@ const renderLandingPage = (quoteArray) => {
        <h3 class="quotes-details">${quote.author}</h3>
      </div>
    </div>
- </section>`);
+ `);
 
   $("#green-tick").click(plusButton);
   $("#refresh-icon").click(refreshButtonClick);
-
-  $("#main").append(` <section class="search-banner">
-  <h1 class="banner-title">library of Knowledge</h1>
-  <h2 class="banner-info">Enter Author/Book name</h2>
-
-  <div class="input-container">
-    <input
-      class="input is-rounded"
-      type="text"
-      placeholder="search"
-      id="input-text"
-    />
-  </div>
-</section>`);
 };
 const onLoad = () => {
   fetchQuotesData();
