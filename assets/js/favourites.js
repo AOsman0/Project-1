@@ -21,6 +21,10 @@ const onload = () => {
 
 const renderSavedBooks = () => {
   //fetch data from local storage
+  const arrayFromLS = JSON.parse(localStorage.getItem('favouriteBook'));
+  console.log (arrayFromLS )
+
+ // own comments: i am going to get the data and 
 
   //set forloop for number of sets in the local storage
 
@@ -79,5 +83,7 @@ const renderSavedQuotes = () => {
     </div>
   </div>`);
 };
+
+
 
 window.addEventListener("load", onload);
