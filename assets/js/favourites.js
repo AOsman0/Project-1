@@ -27,10 +27,9 @@ const renderSavedBooks = () => {
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p id="">title</p>
-          <p id="">author</p>
+          <p>title</p>
+          <p>author</p>
         </div>
-
         <div class="card-action">
           <a class="waves-effect waves-light blue btn-small">read more</a>
           <a class="btn-floating btn-small waves-effect waves-light red"
@@ -43,15 +42,15 @@ const renderSavedBooks = () => {
 };
 
 const renderSavedQuotes = () => {
-  $("#book-favourites").append(`   <div class="card-container col s12 m7">
+  $("#book-favourites").append(`<div class="card-container col s12 m7">
   <div class="card horizontal">
     <!-- <div class="card-image">
       <img class="image" src="./assets/images/mountain.jpg" />
     </div> -->
     <div class="card-stacked">
       <div class="card-content">
-        <p id="quotes">quotes</p>
-        <p id="authors">author</p>
+        <p>quotes</p>
+        <p>author</p>
       </div>
 
       <div class="card-action">
