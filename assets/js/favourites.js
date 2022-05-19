@@ -85,9 +85,41 @@ const minusButton = () => {
   // declare a minus icon
   const minusQuotesIcon = document.getElementById("i");
   $(`#${i}`).click(deleteCard);
-  console.log("minus has been clicked" + minusQuotesIcon);
+  console.log("minus has been clicked for Quotes:" + minusQuotesIcon);
 
   // this minus button will delete a card from local storage
+};
+
+const minusButtonBooks = () => {
+  // declare a minus icon
+  const minusButtonBooks = document.getElementById("i");
+  $(`#${i}`).click(deleteCard);
+  console.log("minus has been clicked for Books:" + minusButtonBooks);
+  // this minus button will delete a card from local storage
+};
+
+const deleteBookCard = (event) => {
+  const target = event.target;
+  console.log("id is: " + target.id);
+
+  // this minus button will clear the div
+
+  const bookFromLocalStorage = localStorage.getItem("favoriteBook"); // an array that has more than one objects
+  // parse into json
+  let parsedData = JSON.parse(bookFromLocalStorage);
+  console.log("parseData: " + parsedData);
+  const temp = parsedData.splice(target.id, 1);
+  console.log("deleted: " + temp);
+  console.log("parsedData: " + parsedData);
+
+  localStorage.setItem("favoriteBook", JSON.stringify(parsedData));
+
+  alert(`book deleted`);
+
+  // remove the whole section that rendors these cards
+  favQuotes = document.getElementById("fav-books").remove();
+  // and then rerender the cards
+  fetchBooks();
 };
 
 const fetchQuotes = () => {
@@ -126,7 +158,8 @@ const renderFavoriteBooks = () => {
   // if saved quotes is rendered, clear it from page.
   // render book cards
 
-  $("#book-favourites").append(` <div class="card-container col s12 m7">
+  $("#book-favourites")
+    .append(` <div id="fav-books" class="card-container col s12 m7">
     <div class="card horizontal">
       <div class="card-image">
         <img class="image" src=${image} />
@@ -139,12 +172,13 @@ const renderFavoriteBooks = () => {
         <div class="card-action">
           <a class="waves-effect waves-light blue btn-small">read more</a>
           <a class="btn-floating btn-small waves-effect waves-light red"
-            ><i class="material-icons">-</i></a
+            ><i id="${i}" class="material-icons">-</i></a
           >
         </div>
       </div>
     </div>
   </div>`);
+  $(`#${i}`).click(deleteBookCard);
 };
 
 const renderFavoriteQuotes = () => {
