@@ -4,12 +4,6 @@ const quotesElement = document.getElementById("quotes-btn");
 const favouriteSection = document.getElementById("book-favourites");
 const sectionElement = document.getElementById("favourite-section");
 
-let author = "";
-let title = "";
-let image = "";
-let bookLink = "";
-let quote = "";
-
 const onload = () => {
   $("#banner").append(`     <div class="button-container">
     <a id="quotes-btn" class="fav-button waves-effect waves-light btn-large"
@@ -52,7 +46,7 @@ const fetchBooks = () => {
     console.log(bookLink);
 
     if (!savedBooks[i].volumeInfo.imageLinks) {
-      image = ".assets/images/placeholder.png";
+      image = `./assets/images/placeholder.png`;
     } else {
       image = savedBooks[i].volumeInfo.imageLinks.thumbnail;
     }

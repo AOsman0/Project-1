@@ -169,7 +169,7 @@ const renderResult = () => {
             src=${image}
           />
           <span class="card-title">${title}</span>
-          <a  class="btn-floating halfway-fab waves-effect waves-light red"
+          <a  class="add-btn btn-floating halfway-fab waves-effect waves-light "
             ><i id="${i}" class="material-icons" >add</i></a
           >
         </div>
@@ -210,20 +210,19 @@ const initialiseLocalStorage = () => {
 // TODO FIND A WAY TO TARGET ONLY ONE CARD ON EACH CLICK
 const addButtonClick = (event) => {
   const target = event.target;
-  console.log("event.target: " + target);
-  const currentTarget = event.currentTarget;
-  console.log("event.currentTarget: " + currentTarget);
-  console.log("target.tagName: " + target.tagName);
-  console.log("target.id: " + target.id);
   const cardNum = target.id;
   console.log(cardNum);
-
+  // alert user to saving information
+  alert("this book has been added to favourites");
   // we want to add this movie to the favoriteMovieList list
   // step 1:
   // fetch the existing favoriteMovieList from the local storage
   const savedBook = currentSearchResults[cardNum];
   console.log(savedBook);
-
+  // change color and text of button
+  const currentBtn = document.getElementById(cardNum);
+  currentBtn.setAttribute("class", "red");
+  currentBtn.textContent = "saved";
   // check if the last came back as null or undefined
 
   // append this movie to the favoriteMovieList

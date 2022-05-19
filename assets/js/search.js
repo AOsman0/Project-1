@@ -101,7 +101,7 @@ const renderResultsBanner = () => {
          
          
         />
-        <button type="submit" id="submit" class="btn-large"
+        <button type="submit" id="submit" href="#results" class="btn-large"
         >submit</button>
       </form>
     </section>`);

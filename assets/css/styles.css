@@ -188,8 +188,37 @@ body {
   padding: 0%;
 }
 
-.images 
 /* end of banner style */
+/* start of results styles */
+
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.card {
+  width: 30rem;
+  margin: 2rem;
+}
+.card-footer {
+  background-color: rgb(231, 230, 230);
+  border-radius: 5px;
+  margin-bottom: 1px;
+}
+
+.card-footer-item {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.image-size {
+  height: 50rem;
+}
+.add-btn:focus {
+  background-color: green;
+}
+/* end of results styles */
 /* start of footer styles */
 .footer-container {
   margin-top: 16.5rem;
