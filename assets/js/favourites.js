@@ -62,6 +62,40 @@ const fetchBooks = () => {
     renderFavoriteBooks(bookResults);
   }
 };
+
+const deleteCard = (event) => {
+  const target = event.target;
+  console.log("id is: " + target.id);
+
+  // this minus button will clear the div
+
+  const fromLocalStorage = localStorage.getItem("favoriteQuotes"); // an array that has more than one objects
+  // parse into json
+  let parsedData = JSON.parse(fromLocalStorage);
+  console.log("parseData: " + parsedData);
+  const temp = parsedData.splice(target.id, 1);
+  console.log("deleted: " + temp);
+  console.log("parsedData: " + parsedData);
+
+  localStorage.setItem("favoriteQuotes", JSON.stringify(parsedData));
+
+  alert(`quote deleted`);
+
+  // remove the whole section that rendors these cards
+  favQuotes = document.getElementById("fav-quotes").remove();
+  // and then rerender the cards
+  fetchQuotes();
+};
+
+const minusButton = () => {
+  // declare a minus icon
+  const minusQuotesIcon = document.getElementById("i");
+  $(`#${i}`).click(deleteCard);
+  console.log("minus has been clicked" + minusQuotesIcon);
+
+  // this minus button will delete a card from local storage
+};
+
 const fetchQuotes = () => {
   //fetch data from local storage
   const savedQuotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
@@ -120,7 +154,8 @@ const renderFavoriteBooks = () => {
 };
 
 const renderFavoriteQuotes = () => {
-  $("#book-favourites").append(`   <div class="card-container col s12 m7">
+  $("#book-favourites")
+    .append(`   <div id="fav-quotes" class="card-container col s12 m7">
     <div class="card horizontal">
       <!-- <div class="card-image">
         <img class="image" src="./assets/images/mountain.jpg" />
@@ -140,6 +175,7 @@ const renderFavoriteQuotes = () => {
     </div>
   </div>
 </div>`);
+  $(`#${i}`).click(deleteCard);
 };
 
 window.addEventListener("load", onload);

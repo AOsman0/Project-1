@@ -167,6 +167,8 @@ const addButtonClick = (event) => {
   const cardNum = target.id;
   console.log(cardNum);
 
+  MYlISToFQuotes[cardNum].remove();
+
   // we want to add this movie to the favoriteMovieList list
   // step 1:
   // fetch the existing favoriteMovieList from the local storage
