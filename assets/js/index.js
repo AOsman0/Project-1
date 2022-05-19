@@ -149,6 +149,9 @@ const fetchBookData = () => {
         console.log("book results" + bookResults);
         // render results card
         renderResult(bookResults);
+        //   scroll down page
+        var x = $(window).scrollTop();
+        $("html, body").animate({ scrollTop: x + 800 });
       }
       console.log(currentSearchResults);
       // now that we are done rendering the cards, lets push the currentSearchResult to local storage
