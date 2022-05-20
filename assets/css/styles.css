@@ -96,6 +96,7 @@ body {
   background-color: var(--antique-brass-3);
   border-style: solid;
   border-color: var(--desert-sand);
+  border-radius: 2rem;
 }
 .quotes-header {
   font-size: 2rem;
@@ -106,24 +107,26 @@ body {
   text-shadow: -0.6rem 0.4rem 0.8rem;
 }
 
-.button-icons {
-  margin-top: 15px;
-  margin-right: 20px;
-}
-
 .plus-icon {
   color: green;
   background-color: var(--antique-brass-3);
   font-size: 1.5rem;
   width: 4rem;
   height: 3rem;
+  border: 0.2rem var(--coffee) solid;
+  border-radius: 3rem;
+  margin-left: 12rem;
+  justify-content: space-between;
 }
 .refresh-icon {
+  justify-content: space-between;
   color: white;
   background-color: var(--antique-brass-3);
   font-size: 1.5rem;
   width: 4rem;
   height: 3rem;
+  border: 0.2rem var(--coffee) solid;
+  border-radius: 3rem;
 }
 
 .quotes-text {
@@ -135,6 +138,8 @@ body {
   margin-bottom: 1rem;
   margin-top: 0.8rem;
   text-shadow: 0.1rem 0.2rem 0.4rem;
+  padding: 10px;
+  border-radius: 2rem;
 }
 .quotes-details {
   text-decoration: underline;
@@ -146,6 +151,9 @@ body {
   border: 0.3rem solid var(--coffee);
   margin-bottom: 1rem;
   margin-top: 0.8rem;
+  padding: 10px;
+  contain: content;
+  border-radius: 2rem;
 }
 /* end quotes style */
 /*start banner style */
@@ -169,15 +177,16 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 2rem;
 }
 .search-banner:hover {
   background-image: url("../images/library.jpeg");
   cursor: pointer;
 }
 .banner-title {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 500;
-  color: (--cornsilk);
+  color: var(--cornsilk);
   letter-spacing: 0.4rem;
   text-transform: uppercase;
   margin: 0%;
@@ -185,9 +194,9 @@ body {
   font-weight: 600;
 }
 .banner-info {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
-  color: var(--white);
+  color: var(--cornsilk);
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   margin: 0%;
@@ -197,17 +206,17 @@ body {
   width: 50%;
   flex-direction: row;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 #input-text {
   text-align: center;
-  height: 7.5rem;
+  height: 8rem;
   font-size: 3rem;
   padding: 0%;
 }
 
 .btn-large {
-  background-color: grey;
+  background-color: var(--cornsilk);
   color: var(--antique-brass);
 }
 
@@ -246,31 +255,29 @@ body {
 .footer-container {
   margin-top: 5rem;
   text-align: center;
-  border: 1px solid var(--bole);
+  border: 2px solid var(--bole);
+  border-radius: 1rem;
   width: 100%;
   text-align: center;
 }
 .btn {
-  font-size: 3rem;
+  font-size: 2rem;
   border: solid 3px;
   color: var(--antique-brass);
-  border-radius: 4rem;
+  border-radius: 2rem;
   text-decoration: none;
   text-transform: uppercase;
-  background-color: grey;
+  background-color: var(--cornsilk);
+  padding-bottom: 3rem;
 }
 .btn:hover {
-  background-color: var(--bole);
+  background-color:green
   color: white;
   cursor: pointer;
 }
 /* end of footer styles */
 /* start of media query */
 @media screen and (max-width: 1000px) {
-  .button-icons {
-    position: absolute;
-    left: 20rem;
-  }
   .nav-container {
     display: flex;
     flex-direction: column;
