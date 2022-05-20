@@ -32,14 +32,20 @@
 html {
   font-size: 10px;
 }
+
 body {
   margin: 0%;
-  background-color: white;
+  background-image: linear-gradient(
+    var(--desert-sand),
+    var(--coffee),
+    var(--cafe-au-lait)
+  );
 }
 /* start header style */
+
 .header {
-  background-color: var(--brown-sugar);
-  border: var(--bole);
+  background-color: var(--desert-sand);
+  border: var(--desert-sand);
 }
 .nav-container {
   display: flex;
@@ -80,15 +86,19 @@ body {
   position: relative;
   background-color: black;
 }
-
+/* 
 .quotes-container {
   width: 80%;
   margin: auto;
-}
+} */
 
+.quotes-container {
+  background-color: var(--antique-brass-3);
+  border-style: solid;
+  border-color: var(--desert-sand);
+}
 .quotes-header {
   font-size: 2rem;
-  background-color: var(--antique-brass-3);
   color: white;
   text-decoration: underline;
   text-transform: uppercase;
@@ -96,20 +106,21 @@ body {
   text-shadow: -0.6rem 0.4rem 0.8rem;
 }
 .button-icons {
-  position: absolute;
-  left: 134rem;
-  top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  margin-top: 2rem;
 }
 .plus-icon {
   color: green;
-  background-color: grey;
+  background-color: var(--antique-brass-3);
   font-size: 1.5rem;
   width: 4rem;
   height: 3rem;
 }
 .refresh-icon {
   color: white;
-  background-color: grey;
+  background-color: var(--antique-brass-3);
   font-size: 1.5rem;
   width: 4rem;
   height: 3rem;
@@ -118,20 +129,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   color: white;
-  border-style: solid;
-  border-color: var(--cafe-au-lait);
-  background-color: var(--antique-brass-2);
-  letter-spacing: 0.2rem;
+  letter-spacing: 0rem;
 }
 .quotes-details {
   text-decoration: underline;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   color: white;
-  background-color: var(--antique-brass);
+  background-color: var(--antique-brass-3);
   text-shadow: 0.6rem 0.4rem 0.8rem;
   border-style: solid;
-  border-color: var(--cafe-au-lait);
+  border-color: var(--coffee);
+  border-top-width: 0.1rem;
 }
 /* end quotes style */
 /*start banner style */
@@ -148,13 +157,15 @@ body {
       rgba(20, 20, 20, 0.7),
       rgba(133, 133, 133, 0.2)
     ),
-    url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
+    url("../images/library.jpeg");
+  animation: animatedBackground 10s linear infinite alternate;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .search-banner:hover {
-  background-image: url("../images/alfons-morales-YLSwjSy7stw-unsplash.jpg");
+  background-image: url("../images/library.jpeg");
   cursor: pointer;
 }
 .banner-title {
@@ -258,5 +269,13 @@ body {
   }
   .nav-anchor {
     margin: 0;
+  }
+}
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }
