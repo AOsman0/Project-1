@@ -88,15 +88,6 @@ body {
 /* end header style */
 /* start quotes style*/
 
-/* #quotes-section {
-  position: relative;
-} */
-/* 
-.quotes-container {
-  width: 80%;
-  margin: auto;
-} */
-
 .quotes-container {
   background-color: var(--antique-brass-3);
   border-style: solid;
