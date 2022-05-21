@@ -1,3 +1,111 @@
+:root {
+  --pale-spring-bud: #ccd5aeff;
+  --pale-spring-bud-2: #e9edc9ff;
+  --cornsilk: #fefae0ff;
+  --papaya-whip: #faedcdff;
+  --fawn: #d4a373ff;
+  --rich-black-fogra-39: #0b090aff;
+  --eerie-black: #161a1dff;
+  --blood-red: #660708ff;
+  --ruby-red: #a4161aff;
+  --carnelian: #ba181bff;
+  --imperial-red: #e5383bff;
+  --black-shadows: #b1a7a6ff;
+  --light-gray: #d3d3d3ff;
+  --cultured: #f5f3f4ff;
+  --white: #ffffffff;
+  --desert-sand: #edc4b3ff;
+  --tumbleweed: #e6b8a2ff;
+  --tumbleweed-2: #deab90ff;
+  --antique-brass: #d69f7eff;
+  --antique-brass-2: #cd9777ff;
+  --antique-brass-3: #c38e70ff;
+  --cafe-au-lait: #b07d62ff;
+  --brown-sugar: #9d6b53ff;
+  --coffee: #8a5a44ff;
+  --bole: #774936ff;
+  --vivid-tangerine: #ffa69eff;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0%;
+  background-image: linear-gradient(
+    var(--desert-sand),
+    var(--coffee),
+    var(--cafe-au-lait)
+  );
+}
+/* start header style */
+
+.header {
+  background-color: var(bal);
+  border: var(--desert-sand);
+}
+
+#nav {
+  background-color: var(--coffees);
+  border: 3px solid var(--desert-sand);
+  border-radius: 2rem;
+}
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 5rem;
+}
+
+.logo-image {
+  width: 12rem;
+  height: 12rem;
+}
+.nav-link {
+  text-decoration: none;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: white;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.nav-anchor {
+  margin-right: 4rem;
+  text-decoration: none;
+  color: var(--coffee);
+}
+.nav-anchor:hover {
+  text-decoration: none;
+  color: var(--fawn);
+}
+
+.favourite-title {
+  justify-content: center;
+}
+
+.favo {
+  font-size: 8rem;
+  font-family: "Franklin Gothic Medium";
+  color: var(--fawn);
+}
+
+#book-btn,
+#quotes-btn {
+  background-color: var(--coffee);
+  font-size: 2rem;
+  color: var(--antique-brass-3);
+  font-weight: 600;
+  border-radius: 3rem;
+}
+
 .book-favourites {
   margin-top: 15rem;
 }
@@ -43,10 +151,31 @@
 .fav-button {
   margin-left: 30rem;
 }
-.button-container {
-}
 
 .favourite-title {
-  margin-right: 5rem;
+  margin-right: 15rem;
 }
 
+.footer-container {
+  margin-top: 5rem;
+  text-align: center;
+  border: 2px solid var(--bole);
+  border-radius: 1rem;
+  width: 100%;
+  text-align: center;
+}
+.btn {
+  font-size: 2rem;
+  border: solid 3px;
+  color: var(--antique-brass);
+  border-radius: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: var(--cornsilk);
+  padding-bottom: 3rem;
+}
+.btn:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
