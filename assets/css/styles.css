@@ -97,7 +97,7 @@ body {
 }
 .quotes-header {
   position: static;
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--cornsilk);
   text-decoration: underline;
   text-transform: uppercase;
@@ -108,7 +108,9 @@ body {
 .button-icons {
   display: flex;
   flex-direction: row-reverse;
+  position: static;
 }
+
 .plus-icon {
   position: relative;
   color: green;
@@ -219,6 +221,7 @@ body {
   height: 8rem;
   font-size: 3rem;
   padding: 0%;
+  border-bottom: 0.2rem solid var(--cornsilk);
 }
 
 .btn-large {
@@ -308,13 +311,6 @@ body {
   }
   .banner-info {
     font-size: 2rem;
-  }
-  .btn-large {
-    height: 4rem;
-    width: 20rem;
-    margin-top: 20rem;
-    font-size: 2rem;
-    padding: 0.2rem;
   }
   #submit {
     display: flex;
