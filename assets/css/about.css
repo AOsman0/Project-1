@@ -49,15 +49,7 @@
 }
 
 .profile-section {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0.1rem;
-  margin: 0.2rem;
   background-color: var(--tumbleweed-2);
-  border-radius: 8px;
-  border-color: black;
-  border: bold;
 }
 /* .profile-section:hover{
     box-shadow: 1rem 1rem 1rem 1rem  #0b090aff;
@@ -76,13 +68,17 @@ h1 {
 
 .main-section {
   background-color: var(--antique-brass-3);
-  position: relative;
+  position: static;
 }
 
 .card {
   background-color: var(--cafe-au-lait);
   width: 100rem;
   height: 100rem;
+}
+
+.title {
+  font-size: 20rem;
 }
 
 .align-div-end {
@@ -128,25 +124,18 @@ h1 {
   font-size: 2rem;
   margin-top: 5rem;
 }
-.media-content {
-  font-size: 4rem;
-}
-
-.media-content {
-  height: 1rem;
-}
 
 html {
   font-size: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .profile-section {
+@media screen and (max-width: 600px) {
+  .card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
   }
+
   .align-div-end {
     display: flex;
     flex-direction: row;
