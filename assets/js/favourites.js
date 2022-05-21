@@ -166,8 +166,8 @@ const renderFavoriteBooks = () => {
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>title: ${title}</p>
-          <p>author: ${author}</p>
+          <p class="the-quote">title: ${title}</p>
+          <p class="the-author">author: ${author}</p>
         </div>
         <div class="card-action">
           <a class="waves-effect waves-light blue btn-small">read more</a>

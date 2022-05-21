@@ -116,7 +116,11 @@ body {
 }
 
 .card-content {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--coffee);
+  text-align: center;
 }
 .card-image {
   height: 15rem;
@@ -139,6 +143,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: var(--antique-brass-3);
 }
 .favourite-banner {
   display: flex;
