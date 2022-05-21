@@ -11,8 +11,16 @@ let bookLink = "";
 let trimmedDescription = "";
 let currentSearchResults = [];
 let favoriteBookList = [];
-
 let favoritesList = [];
+let isbn = "";
+let rating = "";
+let language = "";
+let bookLength = "";
+let categories = "";
+
+
+
+
 
 const readFromLocalStorage = () => {
   const currentQuote = localStorage.getItem("current-quote");
@@ -183,7 +191,7 @@ const renderResult = () => {
           <b>DESCRIPTION: </b> ${trimmedDescription} ...
           </p>
           <div class="button-container">
-          <a class="waves-effect waves-light btn-small">More info</a>
+          <a class="waves-effect waves-light btn-small" id="more${i}">More info</a>
           <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
           </div>
         </div>
@@ -191,6 +199,8 @@ const renderResult = () => {
     </div>
   </div>`);
   $(`#${i}`).click(addButtonClick);
+  $(`#more${i}`).click(fetchModalData);
+
 };
 // function to store answer in local storage
 const storeInLS = (key, value) => {
@@ -236,6 +246,118 @@ const addButtonClick = (event) => {
   // step 2:
   // save favoriteMovieList again in the local storage
 };
+const renderModal = () => {
+  $("main").append(`<div class="popup-container" id="popup-container">
+  <div class="pop-up">
+    <div class="title-picture">
+      <div>
+        <h1>${title}</h1>
+        <h2 class="h2">${author}</h2>
+      </div>
+      <div class="img-container">
+        <img
+        src="${image}"
+        
+          alt=""
+        />
+      </div>
+    </div>
+
+    <table class="popup-table">
+      <tr>
+        <th>ISBN</th>
+        <td>${isbn}</td>
+        <th>RATING</th>
+        <td>${rating}</td>
+      </tr>
+      <tr>
+        <th>CATEGORIES</th>
+        <td>${categories}</td>
+        <th>PAGE COUNT</th>
+        <td>${bookLength}</td>
+      </tr>
+      <tr>
+        <th>PUBLISHER</th>
+        <td>${publisher}</td>
+        <th>LANGUAGE</th>
+        <td>${language}</td>
+      </tr>
+      <tr>
+        <th>contributor</th>
+        <td>${author}</td>
+      </tr>
+    </table>
+
+    <h5>DESCRIPTION </h5> 
+    
+
+    <p>
+      ${description}
+    </p>
+    <div class="button-container">
+          <a class="waves-effect waves-light btn-small" id="close">close me</a>
+          <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
+          </div>
+  </div>
+</div>`)
+$("#close").click(closeModal);
+}
+const fetchModalData = (event) => {
+  
+  const target = event.target;
+  console.log(target)
+  const cardId = target.id;
+  console.log(cardId);
+  const cardNum = cardId.substring(4)
+  console.log(cardNum)
+  
+  
+ 
+  // alert user to saving information
+  // we want to add this movie to the favoriteMovieList list
+  // step 1:
+  // fetch the existing favoriteMovieList from the local storage
+  
+  const savedBook = currentSearchResults[cardNum];
+  console.log( savedBook)
+  items = savedBook
+  title =savedBook.volumeInfo.title;
+  console.log(title);
+  author = savedBook.volumeInfo.authors;
+  console.log(author);
+  publisher = savedBook.volumeInfo.publisher;
+  console.log(publisher);
+  if (!savedBook.volumeInfo.imageLinks) {
+    image = ".assets/images/placeholder.png";
+  } else {
+    image = savedBook.volumeInfo.imageLinks.thumbnail;
+  }
+  console.log(image);
+  description = savedBook.volumeInfo.description;
+  // variable to limit description character count
+  
+  bookLink =savedBook.volumeInfo.previewLink;
+  console.log(bookLink)
+  isbn = savedBook.volumeInfo.industryIdentifiers[0].identifier
+  rating = savedBook.volumeInfo.averageRating
+  language = savedBook.volumeInfo.language
+  bookLength = savedBook.volumeInfo.pageCount
+  console.log(bookLength)
+  categories = savedBook.volumeInfo.categories
+  
+  
+  console.log(bookLink);
+  let bookResults = [title, author, publisher, image, description, bookLink, isbn, rating, language, bookLength, categories];
+
+  console.log("book results" + bookResults);
+  renderModal(bookResults);
+  // render results card
+  volumeInfo.industryIdentifiers[0].identifier
+}
+const closeModal = () => {
+  document.getElementById("popup-container").remove();
+}
+
 const renderSearchBanner = () => {
   $("#search-section")
     .append(`<h1 class="banner-title">library of Knowledge</h1>
@@ -287,6 +409,7 @@ const onLoad = () => {
   initialiseLocalStorage();
   fetchQuotesData();
   renderSearchBanner();
+
 };
 
 window.addEventListener("load", onLoad);
