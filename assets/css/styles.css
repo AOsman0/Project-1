@@ -51,8 +51,8 @@ body {
 #nav {
   background-color: var(--coffees);
   border: 3px solid var(--desert-sand);
-  border-radius: 2rem;
 }
+
 .nav-container {
   display: flex;
   flex-direction: row;
@@ -92,7 +92,6 @@ body {
   background-color: var(--antique-brass-3);
   border-style: solid;
   border-color: var(--desert-sand);
-  border-radius: 2rem;
   margin-top: 1.5rem;
 }
 .quotes-header {
@@ -102,13 +101,15 @@ body {
   text-decoration: underline;
   text-transform: uppercase;
   padding: 1rem;
-  text-shadow: -0.6rem 0.4rem 0.8rem;
+  text-align: center;
 }
 
 .button-icons {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: center;
   position: static;
+  margin-top: 1rem;
 }
 
 .plus-icon {
@@ -121,7 +122,6 @@ body {
   border: 0.2rem var(--coffee) solid;
   border-radius: 3rem;
   justify-content: space-between;
-  bottom: 2.4rem;
 }
 
 .refresh-icon {
@@ -134,7 +134,6 @@ body {
   height: 3rem;
   border: 0.2rem var(--coffee) solid;
   border-radius: 3rem;
-  bottom: 2.4rem;
 }
 
 .quotes-text {
@@ -145,23 +144,22 @@ body {
   border: 0.3rem solid var(--coffee);
   margin-bottom: 1rem;
   margin-top: 0.8rem;
-  text-shadow: 0.1rem 0.2rem 0.4rem;
   padding: 10px;
-  border-radius: 2rem;
+  text-align: center;
 }
+
 .quotes-details {
   text-decoration: underline;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   color: var(--cornsilk);
   background-color: var(--antique-brass-3);
-  text-shadow: 0.6rem 0.4rem 0.8rem;
   border: 0.3rem solid var(--coffee);
   margin-bottom: 1rem;
   margin-top: 0.8rem;
   padding: 10px;
   contain: content;
-  border-radius: 2rem;
+  text-align: center;
 }
 /* end quotes style */
 /*start banner style */
@@ -185,7 +183,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 2rem;
 }
 .search-banner:hover {
   background-image: url("../images/library.jpeg");
@@ -283,7 +280,6 @@ body {
   margin-top: 5rem;
   text-align: center;
   border: 2px solid var(--bole);
-  border-radius: 1rem;
   width: 100%;
   text-align: center;
 }
@@ -292,7 +288,6 @@ body {
   font-size: 2rem;
   border: solid 3px;
   color: var(--antique-brass);
-  border-radius: 2rem;
   text-decoration: none;
   text-transform: uppercase;
   background-color: var(--cornsilk);
