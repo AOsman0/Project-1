@@ -96,6 +96,7 @@ body {
   margin-top: 1.5rem;
 }
 .quotes-header {
+  position: static;
   font-size: 2rem;
   color: var(--cornsilk);
   text-decoration: underline;
@@ -104,7 +105,12 @@ body {
   text-shadow: -0.6rem 0.4rem 0.8rem;
 }
 
+.button-icons {
+  display: flex;
+  flex-direction: row-reverse;
+}
 .plus-icon {
+  position: relative;
   color: green;
   background-color: var(--antique-brass-3);
   font-size: 1.5rem;
@@ -112,10 +118,12 @@ body {
   height: 3rem;
   border: 0.2rem var(--coffee) solid;
   border-radius: 3rem;
-  margin-left: 12rem;
   justify-content: space-between;
+  bottom: 2.4rem;
 }
+
 .refresh-icon {
+  position: relative;
   justify-content: space-between;
   color: white;
   background-color: var(--antique-brass-3);
@@ -124,6 +132,7 @@ body {
   height: 3rem;
   border: 0.2rem var(--coffee) solid;
   border-radius: 3rem;
+  bottom: 2.4rem;
 }
 
 .quotes-text {
@@ -230,12 +239,12 @@ body {
   flex-wrap: wrap;
   width: 100%;
 }
+
 .card {
   width: 30rem;
   margin: 2rem;
 }
 .card-footer {
-  background-color: rgb(231, 230, 230);
   border-radius: 5px;
   margin-bottom: 1px;
 }
@@ -243,6 +252,20 @@ body {
 .card-footer-item {
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.waves-effect {
+  background-color: var(--brown-sugar);
+}
+
+.card-content {
+  background-color: var(--cafe-au-lait);
+}
+
+.author-info {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--desert-sand);
 }
 
 .image-size {
@@ -261,6 +284,7 @@ body {
   width: 100%;
   text-align: center;
 }
+
 .btn {
   font-size: 2rem;
   border: solid 3px;
@@ -279,25 +303,31 @@ body {
 /* end of footer styles */
 /* start of media query */
 @media screen and (max-width: 500px) {
-  .nav-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
+  .banner-title {
+    font-size: 3rem;
   }
-  .nav-anchor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
+  .banner-info {
+    font-size: 2rem;
   }
-  #nav {
+  .btn-large {
+    height: 4rem;
+    width: 20rem;
+    margin-top: 20rem;
+    font-size: 2rem;
+    padding: 0.2rem;
+  }
+  #submit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
+    margin-right: 20rem;
+    position: relative;
+  }
+  #input-text {
+    width: 20rem;
   }
 }
+
 @keyframes animatedBackground {
   0% {
     background-position: 0 0;
