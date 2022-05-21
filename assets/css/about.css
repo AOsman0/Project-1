@@ -63,7 +63,7 @@ h1 {
   margin-left: 5rem;
   margin-top: 2rem;
   animation-duration: 5s;
-  /* animation-name: animate__fadeInDownBig; */
+  animation-name: animate__fadeInDownBig;
 }
 
 .main-section {

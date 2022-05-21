@@ -166,7 +166,7 @@ const renderFavoriteBooks = () => {
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p class="the-quote">title: ${title}</p>
+          <p class="the-title">title: ${title}</p>
           <p class="the-author">author: ${author}</p>
         </div>
         <div class="card-action">
@@ -183,18 +183,18 @@ const renderFavoriteBooks = () => {
 
 const renderFavoriteQuotes = () => {
   $("#book-favourites")
-    .append(`   <div id="fav-quotes" class="card-container col s12 m7">
+    .append(` <div id="fav-quotes" class="card-container col s12 m7">
     <div class="card horizontal">
       <!-- <div class="card-image">
         <img class="image" src="./assets/images/mountain.jpg" />
       </div> -->
       <div class="card-stacked">
         <div class="card-content">
-          <p>quotes: ${quote}</p>
-          <p>author: ${author}</p>
+          <p class="the-quote">quotes: ${quote}</p>
+          <p class="the-author">author: ${author}</p>
         </div>
        <div class="card-action">
-        <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
+        <!-- <a class="waves-effesct waves-light btn-small">Button</a> -->
         <a
           class="delete-button btn-floating btn-small waves-effect waves-light red"
           ><i id= "${i}" class="material-icons">-</i></a

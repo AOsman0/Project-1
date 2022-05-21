@@ -110,6 +110,21 @@ body {
   margin-top: 15rem;
 }
 
+.the-quote {
+  color: var(--desert-sand);
+  font-weight: 700;
+  font-weight: bold;
+  font-size: 4rem;
+  padding: 2rem;
+}
+
+.the-author {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--coffee);
+  font-style: italic;
+}
+
 .card {
   display: flex;
   flex-direction: row;
@@ -123,17 +138,31 @@ body {
   text-align: center;
 }
 .card-image {
+  width: 15rem;
   height: 15rem;
   object-fit: cover;
+  background-color: var(--cafe-au-lait);
 }
+
 .image {
   height: 100%;
   width: 100%;
+  background-color: var(--cafe-au-lait);
+  object-fit: cover;
 }
+
 .card-container {
   width: 100rem;
   margin-top: 5rem;
+  border: solid 0.8rem var(--antique-brass-3);
+  border-radius: 2rem;
 }
+
+.the-title {
+  color: var(--bole);
+  font-weight: 800;
+}
+
 .card-action {
   display: flex;
   flex-direction: row;
@@ -145,6 +174,7 @@ body {
   justify-content: space-between;
   background-color: var(--antique-brass-3);
 }
+
 .favourite-banner {
   display: flex;
   flex-direction: row;
