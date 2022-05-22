@@ -39,11 +39,10 @@ const fetchBooks = () => {
 
     // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
     title = savedBooks[i].volumeInfo.title;
-    console.log(title);
+
     author = savedBooks[i].volumeInfo.authors;
-    console.log(author);
+
     bookLink = savedBooks[i].volumeInfo.previewLink;
-    console.log(bookLink);
 
     if (!savedBooks[i].volumeInfo.imageLinks) {
       image = `./assets/images/placeholder.png`;
@@ -51,7 +50,7 @@ const fetchBooks = () => {
       image = savedBooks[i].volumeInfo.imageLinks.thumbnail;
     }
     let bookResults = [title, author, image];
-    console.log("book results" + bookResults);
+
     // render results card
     renderFavoriteBooks(bookResults);
   }
@@ -59,17 +58,14 @@ const fetchBooks = () => {
 
 const deleteCard = (event) => {
   const target = event.target;
-  console.log("id is: " + target.id);
 
   // this minus button will clear the div
 
   const fromLocalStorage = localStorage.getItem("favoriteQuotes"); // an array that has more than one objects
   // parse into json
   let parsedData = JSON.parse(fromLocalStorage);
-  console.log("parseData: " + parsedData);
+
   const temp = parsedData.splice(target.id, 1);
-  console.log("deleted: " + temp);
-  console.log("parsedData: " + parsedData);
 
   localStorage.setItem("favoriteQuotes", JSON.stringify(parsedData));
 
@@ -85,7 +81,6 @@ const minusButton = () => {
   // declare a minus icon
   const minusQuotesIcon = document.getElementById("i");
   $(`#${i}`).click(deleteCard);
-  console.log("minus has been clicked for Quotes:" + minusQuotesIcon);
 
   // this minus button will delete a card from local storage
 };
@@ -100,17 +95,14 @@ const minusButtonBooks = () => {
 
 const deleteBookCard = (event) => {
   const target = event.target;
-  console.log("id is: " + target.id);
 
   // this minus button will clear the div
 
   const bookFromLocalStorage = localStorage.getItem("favoriteBook"); // an array that has more than one objects
   // parse into json
   let parsedData = JSON.parse(bookFromLocalStorage);
-  console.log("parseData: " + parsedData);
+
   const temp = parsedData.splice(target.id, 1);
-  console.log("deleted: " + temp);
-  console.log("parsedData: " + parsedData);
 
   localStorage.setItem("favoriteBook", JSON.stringify(parsedData));
 
@@ -125,7 +117,6 @@ const deleteBookCard = (event) => {
 const fetchQuotes = () => {
   //fetch data from local storage
   const savedQuotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
-  console.log("saved quotes: " + savedQuotes);
 
   if (document.getElementById("book-favourites") !== null) {
     document.getElementById("book-favourites").remove();
@@ -140,15 +131,14 @@ const fetchQuotes = () => {
     // add this whole object to the currentSearchResults array
 
     // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
-    console.log("abc: " + savedQuotes[i]);
+
     const temp = JSON.parse(savedQuotes[i]);
     quote = temp.quote_text;
-    console.log("quote: " + quote);
+
     author = temp.author;
-    console.log("author: " + author);
 
     let bookResults = [quote, author];
-    console.log("book results" + bookResults);
+
     // render results card
     renderFavoriteQuotes(bookResults);
   }

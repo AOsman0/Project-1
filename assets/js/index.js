@@ -16,7 +16,7 @@ let favoritesList = [];
 
 const readFromLocalStorage = () => {
   const currentQuote = localStorage.getItem("current-quote");
-  console.log("currentQuote: " + currentQuote);
+
   const favoritesListFromLS = localStorage.getItem("favoriteQuotes");
   // check if the favorites list is null or does it have any items
   if (favoritesListFromLS === null || favoritesListFromLS === undefined) {
@@ -28,11 +28,9 @@ const readFromLocalStorage = () => {
     // and then store it in the local storage
     // parse favoriteList to string
     localStorage.setItem("favoriteQuotes", JSON.stringify(favoritesList));
-    console.log("favoriteList: " + localStorage.getItem("favoriteQuotes"));
   } else {
     // when the list is not null
     let parsedFavoriteList = JSON.parse(favoritesListFromLS);
-    console.log("parsedFavoriteList: " + parsedFavoriteList);
 
     // lets push this quote to the favorites list
     // parse current quote before we push it
@@ -41,7 +39,6 @@ const readFromLocalStorage = () => {
 
     // store that list to the local storage
     localStorage.setItem("favoriteQuotes", JSON.stringify(parsedFavoriteList));
-    console.log("favoriteList: " + localStorage.getItem("favoriteQuotes"));
   }
 };
 
@@ -52,9 +49,7 @@ const plusButton = () => {
 const refreshButtonClick = () => {
   const refreshIcon = document.getElementById("refresh-icon");
   const quotesContainer = document.getElementById("quotes-container");
-  console.log("refresh-clicked" + refreshIcon);
   if (refreshIcon) {
-    console.log("enterifconditions");
     quotesContainer.remove();
     fetchQuotesData();
   }
@@ -86,12 +81,10 @@ const handleFormSubmit = (event) => {
   event.preventDefault();
   //get text input
   let search = document.getElementById("input-text").value;
-  console.log(search);
   //validate
 
   if (search) {
     // build object with full name and results
-    console.log("good search");
     // fetch data from API
     fetchBookData();
   } else {
@@ -100,10 +93,8 @@ const handleFormSubmit = (event) => {
 };
 const fetchBookData = () => {
   const search = document.getElementById("input-text").value;
-  console.log(search);
   const currentSearchURL = `https://www.googleapis.com/books/v1/volumes?q=${search}`;
 
-  console.log(currentSearchURL);
   let items = [];
 
   fetch(currentSearchURL)
@@ -153,12 +144,9 @@ const fetchBookData = () => {
         var x = $(window).scrollTop();
         $("html, body").animate({ scrollTop: x + 800 });
       }
-      console.log(currentSearchResults);
       // now that we are done rendering the cards, lets push the currentSearchResult to local storage
     }),
-    function (error) {
-      console.log(error);
-    };
+    function (error) {};
 
   // function to render results cards
 };
@@ -214,14 +202,14 @@ const initialiseLocalStorage = () => {
 const addButtonClick = (event) => {
   const target = event.target;
   const cardNum = target.id;
-  console.log(cardNum);
+
   // alert user to saving information
   alert("this book has been added to favourites");
   // we want to add this movie to the favoriteMovieList list
   // step 1:
   // fetch the existing favoriteMovieList from the local storage
   const savedBook = currentSearchResults[cardNum];
-  console.log(savedBook);
+
   // change color and text of button
   const currentBtn = document.getElementById(cardNum);
   currentBtn.setAttribute("class", "red");
