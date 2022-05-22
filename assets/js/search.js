@@ -119,7 +119,7 @@ const renderResult = () => {
         />
         <span class="card-title">${title}</span>
         <a  class="btn-floating halfway-fab waves-effect waves-light red"
-          ><i id="${i}" class="material-icons" >add</i></a
+          ><i id="${i}" class="material-icons" >+</i></a
         >
       </div>
       <div class="card-content">

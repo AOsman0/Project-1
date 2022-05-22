@@ -294,6 +294,17 @@ body {
   color: white;
   cursor: pointer;
 }
+
+.card-content {
+  font-size: 2rem;
+  font-weight: 600;
+  color: wheat;
+}
+
+.material-icons {
+  background-color: green;
+}
+
 /* end of footer styles */
 /* start of media query */
 @media screen and (max-width: 500px) {
