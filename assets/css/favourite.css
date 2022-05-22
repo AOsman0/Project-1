@@ -200,7 +200,6 @@ body {
 
 @media screen and (max-width: 500px) {
   .nav-anchor {
-  }
-  .nav-container {
+    margin-right: 0;
   }
 }

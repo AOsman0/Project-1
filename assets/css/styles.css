@@ -309,6 +309,10 @@ body {
   #input-text {
     width: 20rem;
   }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @keyframes animatedBackground {
