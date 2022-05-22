@@ -185,6 +185,10 @@ html {
   font-size: 10px;
 }
 
+.btn {
+  padding-bottom: 0rem;
+}
+
 @media screen and (max-width: 600px) {
   .card {
     display: flex;

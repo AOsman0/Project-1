@@ -135,8 +135,6 @@ body {
   text-align: center;
 }
 .card-image {
-  width: 15rem;
-  height: 15rem;
   object-fit: cover;
   background-color: var(--cafe-au-lait);
 }
@@ -144,8 +142,6 @@ body {
 .card-container {
   width: 100rem;
   margin-top: 5rem;
-  border: solid 0.8rem var(--antique-brass-3);
-  border-radius: 2rem;
 }
 
 .the-title {
@@ -204,5 +200,7 @@ body {
   }
   .favourite-banner {
     margin-top: 0;
+  }
+  .card-horizontal {
   }
 }
