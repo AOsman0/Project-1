@@ -136,7 +136,7 @@ body {
 }
 .card-image {
   object-fit: cover;
-  background-color: var(--cafe-au-lait);
+  background-color: var(--antique-brass-3);
 }
 
 .card-container {
