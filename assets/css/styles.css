@@ -35,11 +35,7 @@ html {
 
 body {
   margin: 0%;
-  background-image: linear-gradient(
-    var(--desert-sand),
-    var(--coffee),
-    var(--cafe-au-lait)
-  );
+  background-color: var(--desert-sand);
 }
 /* start header style */
 
@@ -50,7 +46,7 @@ body {
 
 #nav {
   background-color: var(--coffees);
-  border: 3px solid var(--desert-sand);
+  border: 2px solid var(--desert-sand);
 }
 
 .nav-container {
@@ -90,8 +86,6 @@ body {
 
 .quotes-container {
   background-color: var(--antique-brass-3);
-  border-style: solid;
-  border-color: var(--desert-sand);
   margin-top: 1.5rem;
 }
 .quotes-header {
@@ -256,6 +250,7 @@ body {
 
 .waves-effect {
   background-color: var(--brown-sugar);
+  justify-content: space-between;
 }
 
 .card-content {
@@ -268,11 +263,12 @@ body {
   color: var(--desert-sand);
 }
 
-.image-size {
-  height: 50rem;
-}
 .add-btn:focus {
   background-color: green;
+}
+
+.button-container {
+  justify-content: space-between;
 }
 /* end of results styles */
 /* start of footer styles */
@@ -307,12 +303,8 @@ body {
   .banner-info {
     font-size: 2rem;
   }
-  #submit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 20rem;
-    position: relative;
+  .btn-large {
+    top: 2rem;
   }
   #input-text {
     width: 20rem;

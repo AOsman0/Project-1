@@ -35,11 +35,7 @@ html {
 
 body {
   margin: 0%;
-  background-image: linear-gradient(
-    var(--desert-sand),
-    var(--coffee),
-    var(--cafe-au-lait)
-  );
+  background-color: var(--desert-sand);
 }
 /* start header style */
 
@@ -52,6 +48,7 @@ body {
   background-color: var(--coffees);
   border: 3px solid var(--desert-sand);
 }
+
 .nav-container {
   display: flex;
   flex-direction: row;
@@ -85,13 +82,14 @@ body {
   text-decoration: none;
   color: var(--fawn);
 }
+/* end header style */
 
 .favourite-title {
   justify-content: center;
 }
 
 .favo {
-  font-size: 8rem;
+  font-size: 4rem;
   font-family: "Franklin Gothic Medium";
   color: var(--fawn);
 }
@@ -143,13 +141,6 @@ body {
   background-color: var(--cafe-au-lait);
 }
 
-.image {
-  height: 100%;
-  width: 100%;
-  background-color: var(--cafe-au-lait);
-  object-fit: cover;
-}
-
 .card-container {
   width: 100rem;
   margin-top: 5rem;
@@ -182,13 +173,6 @@ body {
   align-items: baseline;
   justify-content: space-between;
 }
-.fav-button {
-  margin-left: 30rem;
-}
-
-.favourite-title {
-  margin-right: 15rem;
-}
 
 .footer-container {
   margin-top: 5rem;
@@ -212,4 +196,11 @@ body {
   background-color: green;
   color: white;
   cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-anchor {
+  }
+  .nav-container {
+  }
 }
