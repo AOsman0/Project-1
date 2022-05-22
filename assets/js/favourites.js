@@ -87,7 +87,7 @@ const deleteCard = (event) => {
 const minusButton = () => {
   // declare a minus icon
   const minusQuotesIcon = document.getElementById("i");
-  $(`#${i}`).click(deleteCard);
+  $(`#${i}`).click(renderConfirmModalQuotes);
   console.log("minus has been clicked for Quotes:" + minusQuotesIcon);
 
   // this minus button will delete a card from local storage
@@ -117,7 +117,7 @@ const deleteBookCard = (event) => {
 
   localStorage.setItem("favoriteBook", JSON.stringify(parsedData));
 
-  alert(`book deleted`);
+
 
   // remove the whole section that rendors these cards
   favQuotes = document.getElementById("fav-books").remove();
@@ -126,9 +126,107 @@ const deleteBookCard = (event) => {
 };
 
 
+const closeConfirmModal = () => {
+  console.log("modal closed");
+  document.getElementById("confirm-container").remove();
+}
+
+// function to render confirm modal 
+const renderConfirmModal = (event) => {
+  $("#main").append(`  <div class="confirm-container" id="confirm-container">
+  <div class="confirm">
+    <div id="close" class="modal-content">
+      <span class="close">&times;</span>
+    </div>
+
+    <div class="confirm-content">
+      <div class="title-container">
+        <h1 class="text-option">do you want to delete this to favourites?</h1>
+      </div>
+
+      <div class="button-container">
+        <div class="button-options" id="yes">
+          <a class="waves-effect waves-light btn-small"
+            >yes</a
+          >
+        </div> 
+        <div class="button-options" id="closeModal">
+          <a class="waves-effect waves-light btn-small" >no</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`)
+$("#close").click(closeConfirmModal);
+$("#closeModal").click(closeConfirmModal);
+
+$("#yes").click(() =>{
+  closeConfirmModal();
+  deleteBookCard(event);
+
+});
+
+window.onclick = function(event) {
+  console.log("clicked outside window: " + event.target.id)
+  if (event.target.id == 'confirm-container') {
+  document.getElementById("confirm-container").remove();
+  }
+}
+
+}
+// function to render confirm modal 
+const renderConfirmModalQuotes = (event) => {
+  $("#main").append(`  <div class="confirm-container" id="confirm-container">
+  <div class="confirm">
+    <div id="close" class="modal-content">
+      <span class="close">&times;</span>
+    </div>
+
+    <div class="confirm-content">
+      <div class="title-container">
+        <h1 class="text-option">do you want to delete this to favourites?</h1>
+      </div>
+
+      <div class="button-container">
+        <div class="button-options" id="yes">
+          <a class="waves-effect waves-light btn-small"
+            >yes</a
+          >
+        </div> 
+        <div class="button-options" id="closeModal">
+          <a class="waves-effect waves-light btn-small" >no</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`)
+$("#close").click(closeConfirmModal);
+$("#closeModal").click(closeConfirmModal);
+
+$("#yes").click(() =>{
+  closeConfirmModal();
+  deleteCard(event);
+
+});
+
+window.onclick = function(event) {
+  console.log("clicked outside window: " + event.target.id)
+  if (event.target.id == 'confirm-container') {
+  document.getElementById("confirm-container").remove();
+  }
+}
+
+}
+// function to render modals 
 const renderModal = () => {
   $("main").append(`<div class="popup-container" id="popup-container">
-  <div class="pop-up">
+  <div class="pop-up">  
+  <div id="close" class="modal-content">
+  <span class="close">&times;</span>
+</div>
+<div>
     <div class="title-picture">
       <div>
         <h1>${title}</h1>
@@ -174,17 +272,19 @@ const renderModal = () => {
     <p>
       ${description}
     </p>
-    <div class="button-container">
-          <a class="waves-effect waves-light btn-small" id="close">close me</a>
+   <div class="button-container">
+          
           <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
           </div>
   </div>
 </div>`)
 $("#close").click(closeModal);
 }
+// function to close modal
 const closeModal = () => {
   document.getElementById("popup-container").remove();
 }
+// function to gather data for modal
 const fetchModalData = (event) => {
   
   const target = event.target;
@@ -237,6 +337,7 @@ const fetchModalData = (event) => {
   // render results card
   
 }
+// function to gather data for quotes
 const fetchQuotes = () => {
   //fetch data from local storage
   const quotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
@@ -270,6 +371,7 @@ const fetchQuotes = () => {
   }
 };
 
+// function to render favourite books
 const renderFavoriteBooks = () => {
   // if saved quotes is rendered, clear it from page.
   // render book cards
@@ -294,10 +396,10 @@ const renderFavoriteBooks = () => {
       </div>
     </div>
   </div>`);
-  $(`#${i}`).click(deleteBookCard);
+  $(`#${i}`).click(renderConfirmModal);
   $(`#more${i}`).click(fetchModalData);
 };
-
+// function to render favourite quotes
 const renderFavoriteQuotes = () => {
   $("#book-favourites")
     .append(`   <div id="fav-quotes" class="card-container col s12 m7">
