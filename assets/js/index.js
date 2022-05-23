@@ -59,7 +59,7 @@ const options = {
   method: "GET",
   headers: {
     "X-RapidAPI-Host": "quotelibapi.p.rapidapi.com",
-    "X-RapidAPI-Key": "48da7b9fcemshc5ff20a1dbaf8cap1255e2jsn3db6ac34e3d7",
+    "X-RapidAPI-Key": "7b8899a8b0msh104c350bc0a0a9cp12b8f3jsncc5b3cbda328",
   },
 };
 
