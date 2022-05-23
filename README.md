@@ -30,28 +30,35 @@ Below is the screen recording demonstrating a responsive layout.
 
 # Skills Gained 👨‍💻
 
-Communication
-Team Work
-Time Management
-Problem Solving Skills
+.Communication
+.Team Work
+.Time Management
+.Problem Solving Skills
 
 # Contributors
 
-[abdilatif-warsame]-(https://github.com/awarsame1996)
+.[abdilatif-warsame]-(https://github.com/awarsame1996)
 
-[abdinasir-warsame]-(https://github.com/abdinasir1993)
+.[abdinasir-warsame]-(https://github.com/abdinasir1993)
 
-[mohamed-warsame]-(https://github.com/MohamedWarsame04)
+.[mohamed-warsame]-(https://github.com/MohamedWarsame04)
 
-[abdirahman-osman]-(https://github.com/AOsman0)
+.[abdirahman-osman]-(https://github.com/AOsman0)
 
 # Technology Used
 
-JavaScript
-jQuery
-HTML
-CSS
-BootStrap and other Frameworks
-VS Code
-GitHub
-Terminal
+.JavaScript
+
+.jQuery
+
+.HTML
+
+.CSS
+
+.BootStrap and other Frameworks
+
+.VS Code
+
+.GitHub
+
+.Terminal
