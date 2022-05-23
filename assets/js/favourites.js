@@ -1,4 +1,4 @@
-const mainElement = document.getElementById("main")
+const mainElement = document.getElementById("main");
 const banner = document.getElementById("banner");
 const bookElement = document.getElementById("book-btn");
 const quotesElement = document.getElementById("quotes-btn");
@@ -21,7 +21,6 @@ let publishedDate = "";
 let language = "";
 let pageCount = "";
 let categories = "";
-
 
 const fetchBooks = () => {
   //fetch data from local storage
@@ -72,8 +71,6 @@ const deleteCard = (event) => {
 
   localStorage.setItem("favoriteQuotes", JSON.stringify(parsedData));
 
-  alert(`quote deleted`);
-
   // remove the whole section that rendors these cards
   favQuotes = document.getElementById("fav-quotes").remove();
   // and then rerender the cards
@@ -88,7 +85,6 @@ const minusButton = () => {
   console.log("minus has been clicked for Quotes:" + minusQuotesIcon);
 
   $(`#${i}`).click(deleteCard);
-
 
   // this minus button will delete a card from local storage
 };
@@ -114,21 +110,18 @@ const deleteBookCard = (event) => {
 
   localStorage.setItem("favoriteBook", JSON.stringify(parsedData));
 
-
-
   // remove the whole section that rendors these cards
   favQuotes = document.getElementById("fav-books").remove();
   // and then rerender the cards
   fetchBooks();
 };
 
-
 const closeConfirmModal = () => {
   console.log("modal closed");
   document.getElementById("confirm-container").remove();
-}
+};
 
-// function to render confirm modal 
+// function to render confirm modal
 const renderConfirmModal = (event) => {
   $("#main").append(`  <div class="confirm-container" id="confirm-container">
   <div class="confirm">
@@ -154,25 +147,23 @@ const renderConfirmModal = (event) => {
       </div>
     </div>
   </div>
-</div>`)
-$("#close").click(closeConfirmModal);
-$("#closeModal").click(closeConfirmModal);
+</div>`);
+  $("#close").click(closeConfirmModal);
+  $("#closeModal").click(closeConfirmModal);
 
-$("#yes").click(() =>{
-  closeConfirmModal();
-  deleteBookCard(event);
+  $("#yes").click(() => {
+    closeConfirmModal();
+    deleteBookCard(event);
+  });
 
-});
-
-window.onclick = function(event) {
-  console.log("clicked outside window: " + event.target.id)
-  if (event.target.id == 'confirm-container') {
-  document.getElementById("confirm-container").remove();
-  }
-}
-
-}
-// function to render confirm modal 
+  window.onclick = function (event) {
+    console.log("clicked outside window: " + event.target.id);
+    if (event.target.id == "confirm-container") {
+      document.getElementById("confirm-container").remove();
+    }
+  };
+};
+// function to render confirm modal
 const renderConfirmModalQuotes = (event) => {
   $("#main").append(`  <div class="confirm-container" id="confirm-container">
   <div class="confirm">
@@ -198,25 +189,23 @@ const renderConfirmModalQuotes = (event) => {
       </div>
     </div>
   </div>
-</div>`)
-$("#close").click(closeConfirmModal);
-$("#closeModal").click(closeConfirmModal);
+</div>`);
+  $("#close").click(closeConfirmModal);
+  $("#closeModal").click(closeConfirmModal);
 
-$("#yes").click(() =>{
-  closeConfirmModal();
-  deleteCard(event);
+  $("#yes").click(() => {
+    closeConfirmModal();
+    deleteCard(event);
+  });
 
-});
-
-window.onclick = function(event) {
-  console.log("clicked outside window: " + event.target.id)
-  if (event.target.id == 'confirm-container') {
-  document.getElementById("confirm-container").remove();
-  }
-}
-
-}
-// function to render modals 
+  window.onclick = function (event) {
+    console.log("clicked outside window: " + event.target.id);
+    if (event.target.id == "confirm-container") {
+      document.getElementById("confirm-container").remove();
+    }
+  };
+};
+// function to render modals
 const renderModal = () => {
   $("main").append(`<div class="popup-container" id="popup-container">
   <div class="pop-up">  
@@ -274,25 +263,22 @@ const renderModal = () => {
           <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
           </div>
   </div>
-</div>`)
-$("#close").click(closeModal);
-}
+</div>`);
+  $("#close").click(closeModal);
+};
 // function to close modal
 const closeModal = () => {
   document.getElementById("popup-container").remove();
-}
+};
 // function to gather data for modal
 const fetchModalData = (event) => {
-  
   const target = event.target;
-  console.log(target)
+  console.log(target);
   const cardId = target.id;
   console.log(cardId);
-  const cardNum = cardId.substring(4)
-  console.log(cardNum)
-  
-  
- 
+  const cardNum = cardId.substring(4);
+  console.log(cardNum);
+
   // alert user to saving information
   // we want to add this movie to the favoriteMovieList list
   // step 1:
@@ -300,9 +286,9 @@ const fetchModalData = (event) => {
   const savedBooks = JSON.parse(localStorage.getItem("favoriteBook"));
   console.log(savedBooks);
   const savedBook = savedBooks[cardNum];
-  console.log( savedBook)
-  items = savedBook
-  title =savedBook.volumeInfo.title;
+  console.log(savedBook);
+  items = savedBook;
+  title = savedBook.volumeInfo.title;
   console.log(title);
   author = savedBook.volumeInfo.authors;
   console.log(author);
@@ -317,33 +303,38 @@ const fetchModalData = (event) => {
   description = savedBook.volumeInfo.description;
   // variable to limit description character count
 
+  isbn = savedBook.volumeInfo.industryIdentifiers[0].identifier;
+  rating = savedBook.volumeInfo.averageRating;
+  language = savedBook.volumeInfo.language;
+  bookLength = savedBook.volumeInfo.pageCount;
+  console.log(bookLength);
+  categories = savedBook.volumeInfo.categories;
 
-  isbn = savedBook.volumeInfo.industryIdentifiers[0].identifier
-  rating = savedBook.volumeInfo.averageRating
-  language = savedBook.volumeInfo.language
-  bookLength = savedBook.volumeInfo.pageCount
-  console.log(bookLength)
-  categories = savedBook.volumeInfo.categories
-  
-  
   console.log(bookLink);
-  let bookResults = [title, author, publisher, image, description, bookLink, isbn, rating, language, bookLength, categories];
+  let bookResults = [
+    title,
+    author,
+    publisher,
+    image,
+    description,
+    bookLink,
+    isbn,
+    rating,
+    language,
+    bookLength,
+    categories,
+  ];
 
-  console.log( bookResults);
+  console.log(bookResults);
   renderModal(bookResults);
   // render results card
-  
-}
+};
 // function to gather data for quotes
 const fetchQuotes = () => {
   //fetch data from local storage
 
-  const quotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
-  const savedQuotes = JSON.parse(quotes)
-  console.log("saved quotes: " + savedQuotes);
-
   const savedQuotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
-
+  console.log(savedQuotes);
 
   if (document.getElementById("book-favourites") !== null) {
     document.getElementById("book-favourites").remove();
@@ -422,7 +413,7 @@ const renderFavoriteQuotes = () => {
     </div>
   </div>
 </div>`);
-  $(`#${i}`).click(deleteCard);
+  $(`#${i}`).click(renderConfirmModalQuotes);
 };
 const onload = () => {
   $("#banner").append(`     <div class="button-container">

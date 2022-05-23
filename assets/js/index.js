@@ -18,10 +18,6 @@ let language = "";
 let bookLength = "";
 let categories = "";
 
-
-
-
-
 const readFromLocalStorage = () => {
   const currentQuote = localStorage.getItem("current-quote");
 
@@ -52,6 +48,7 @@ const readFromLocalStorage = () => {
 
 const plusButton = () => {
   readFromLocalStorage();
+  closeConfirmModal();
 };
 
 const refreshButtonClick = () => {
@@ -104,7 +101,7 @@ const fetchBookData = () => {
   const currentSearchURL = `https://www.googleapis.com/books/v1/volumes?q=${search}`;
 
   let items = [];
-currentSearchResults = [];
+  currentSearchResults = [];
   fetch(currentSearchURL)
     .then(function (res) {
       return res.json();
@@ -188,7 +185,6 @@ const renderResult = () => {
   </div>`);
   $(`#${i}`).click(renderConfirmModal);
   $(`#more${i}`).click(fetchModalData);
-
 };
 // function to store answer in local storage
 const storeInLS = (key, value) => {
@@ -210,7 +206,6 @@ const initialiseLocalStorage = () => {
 //function to add to favourite list
 // TODO FIND A WAY TO TARGET ONLY ONE CARD ON EACH CLICK
 const addButtonClick = (event) => {
-
   // create the model
 
   const target = event.target;
@@ -297,27 +292,25 @@ const renderModal = () => {
           <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
           </div>
   </div>
-</div>`)
-$("#close").click(closeModal);
-window.onclick = function(event) {
-  console.log(event.target.id)
-  if (event.target.id == 'popup-container') {
-
-    
-  document.getElementById("popup-container").remove();
-  }
-}
-}
+</div>`);
+  $("#close").click(closeModal);
+  window.onclick = function (event) {
+    console.log(event.target.id);
+    if (event.target.id == "popup-container") {
+      document.getElementById("popup-container").remove();
+    }
+  };
+};
 
 const closeModal = () => {
   document.getElementById("popup-container").remove();
-}
+};
 const closeConfirmModal = () => {
   console.log("modal closed");
   document.getElementById("confirm-container").remove();
-}
+};
 
-// function to render confirm modal 
+// function to render confirm modal
 const renderConfirmModal = (event) => {
   $("#main").append(`  <div class="confirm-container" id="confirm-container">
   <div class="confirm">
@@ -343,40 +336,39 @@ const renderConfirmModal = (event) => {
       </div>
     </div>
   </div>
-</div>`)
-$("#close").click(closeConfirmModal);
-$("#closeModal").click(closeConfirmModal);
+</div>`);
+  $("#close").click(closeConfirmModal);
+  $("#closeModal").click(closeConfirmModal);
 
-$("#yes").click(() =>{
-  const target = event.target;
-  const cardNum = target.id;
-  console.log(cardNum);
- 
-  // we want to add this movie to the favoriteMovieList list
-  // step 1:
-  // fetch the existing favoriteMovieList from the local storage
-  const savedBook = currentSearchResults[cardNum];
-  console.log(savedBook);
-  // change color and text of button
-  const currentBtn = document.getElementById(cardNum);
-  currentBtn.setAttribute("class", "red");
-  currentBtn.textContent = "saved";
-  // check if the last came back as null or undefined
+  $("#yes").click(() => {
+    const target = event.target;
+    const cardNum = target.id;
+    console.log(cardNum);
 
-  // append this movie to the favoriteMovieList
-  storeInLS("favoriteBook", savedBook);
-  closeConfirmModal();
-});
+    // we want to add this movie to the favoriteMovieList list
+    // step 1:
+    // fetch the existing favoriteMovieList from the local storage
+    const savedBook = currentSearchResults[cardNum];
+    console.log(savedBook);
+    // change color and text of button
+    const currentBtn = document.getElementById(cardNum);
+    currentBtn.setAttribute("class", "red");
+    currentBtn.textContent = "saved";
+    // check if the last came back as null or undefined
 
-window.onclick = function(event) {
-  console.log("clicked outside window: " + event.target.id)
-  if (event.target.id == 'confirm-container') {
-  document.getElementById("confirm-container").remove();
-  }
-}
+    // append this movie to the favoriteMovieList
+    storeInLS("favoriteBook", savedBook);
+    closeConfirmModal();
+  });
 
-}
-// function to render confirm modal 
+  window.onclick = function (event) {
+    console.log("clicked outside window: " + event.target.id);
+    if (event.target.id == "confirm-container") {
+      document.getElementById("confirm-container").remove();
+    }
+  };
+};
+// function to render confirm modal
 const renderConfirmModalQuote = (event) => {
   $("#main").append(`  <div class="confirm-container" id="confirm-container">
   <div class="confirm">
@@ -402,42 +394,38 @@ const renderConfirmModalQuote = (event) => {
       </div>
     </div>
   </div>
-</div>`)
-$("#close").click(closeConfirmModal);
-$("#closeModal").click(closeConfirmModal);
+</div>`);
+  $("#close").click(closeConfirmModal);
+  $("#closeModal").click(closeConfirmModal);
 
-$("#addQuote").click(() =>{
-  plusButton();
-});
+  $("#addQuote").click(() => {
+    plusButton();
+  });
 
-window.onclick = function(event) {
-  console.log("clicked outside window: " + event.target.id)
-  if (event.target.id == 'confirm-container') {
-  document.getElementById("confirm-container").remove();
-  }
-}
-
-}
+  window.onclick = function (event) {
+    console.log("clicked outside window: " + event.target.id);
+    if (event.target.id == "confirm-container") {
+      document.getElementById("confirm-container").remove();
+    }
+  };
+};
 const fetchModalData = (event) => {
-  
   const target = event.target;
-  console.log(target)
+  console.log(target);
   const cardId = target.id;
   console.log(cardId);
-  const cardNum = cardId.substring(4)
-  console.log(cardNum)
-  
-  
- 
+  const cardNum = cardId.substring(4);
+  console.log(cardNum);
+
   // alert user to saving information
   // we want to add this movie to the favoriteMovieList list
   // step 1:
   // fetch the existing favoriteMovieList from the local storage
-  
+
   let savedBook = currentSearchResults[cardNum];
-  console.log( savedBook)
-  items = savedBook
-  title =savedBook.volumeInfo.title;
+  console.log(savedBook);
+  items = savedBook;
+  title = savedBook.volumeInfo.title;
   console.log(title);
   author = savedBook.volumeInfo.authors;
   console.log(author);
@@ -451,25 +439,35 @@ const fetchModalData = (event) => {
   console.log(image);
   description = savedBook.volumeInfo.description;
   // variable to limit description character count
-  
-  bookLink =savedBook.volumeInfo.previewLink;
-  console.log(bookLink)
-  isbn = savedBook.volumeInfo.industryIdentifiers[0].identifier
-  rating = savedBook.volumeInfo.averageRating
-  language = savedBook.volumeInfo.language
-  bookLength = savedBook.volumeInfo.pageCount
-  console.log(bookLength)
-  categories = savedBook.volumeInfo.categories
-  
-  
+
+  bookLink = savedBook.volumeInfo.previewLink;
   console.log(bookLink);
-  let bookResults = [title, author, publisher, image, description, bookLink, isbn, rating, language, bookLength, categories];
+  isbn = savedBook.volumeInfo.industryIdentifiers[0].identifier;
+  rating = savedBook.volumeInfo.averageRating;
+  language = savedBook.volumeInfo.language;
+  bookLength = savedBook.volumeInfo.pageCount;
+  console.log(bookLength);
+  categories = savedBook.volumeInfo.categories;
+
+  console.log(bookLink);
+  let bookResults = [
+    title,
+    author,
+    publisher,
+    image,
+    description,
+    bookLink,
+    isbn,
+    rating,
+    language,
+    bookLength,
+    categories,
+  ];
 
   console.log("book results" + bookResults);
   renderModal(bookResults);
   // render results card
-  
-}
+};
 
 const renderSearchBanner = () => {
   $("#search-section")
@@ -521,9 +519,7 @@ const renderLandingPage = (quoteArray) => {
 const onLoad = () => {
   initialiseLocalStorage();
   fetchQuotesData();
-  renderSearchBanner(); 
-  
-
+  renderSearchBanner();
 };
 
 window.addEventListener("load", onLoad);
