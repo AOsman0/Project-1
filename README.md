@@ -25,16 +25,18 @@ Below are screenshots of desktop viewport.
 ![screenshot-4](./assets/images/fav-quote-save.png)
 ![screenshot-5](./assets/images/save-book.png)
 ![screenshot-6](./assets/images/fav-book.png)
+![screenshot-7](./assets/images/about-us-page.png)
 
-<!-- ![screenshot-7](./assets/images/about-us-page.png) -->
+## Responsive
 
-Below are screenrecordings of the site being responsive
+Below are screenrecordings and screenshots of the site being responsive
 
-![screenshot-8]()
-
-## Screen-Recording
+![screenshot-8](./assets/images/homepage-responsive.png)
+![screenshot-8](./assets/images/fav-responsive.png)
 
 Below is the screen recording demonstrating a responsive layout.
+
+https://drive.google.com/drive/folders/1-XhHneRNkt_59kFvZIVcfdn2J9cbtLEP?usp=sharing
 
 # Skills Gained 👨‍💻
 
