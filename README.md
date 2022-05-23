@@ -6,6 +6,10 @@ Library Of Knowledge 📖
 
 The idea behind this project was being able to create a modern library for its users. Users will be able to seek knowledge regarding any topic through searching for it in the own personal library the user will also be to save this book and delete it from there selection once read. Also users will be able to find inspiration and knowledge through a informative quote being rendered which they will be able to save to there quotes library.
 
+# Deployed Link For This Project
+
+[here](https://aosman0.github.io/library-of-knowledge/)
+
 # The User Journey
 
 On arrival of the home page the user will be presented with an quote which will inspire and motivate the user in seeking knowledge.
