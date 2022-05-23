@@ -25,7 +25,8 @@ Below are screenshots of desktop viewport.
 ![screenshot-4](./assets/images/fav-quote-save.png)
 ![screenshot-5](./assets/images/save-book.png)
 ![screenshot-6](./assets/images/fav-book.png)
-![screenshot-7](./assets/images/about-us-page.png)
+
+<!-- ![screenshot-7](./assets/images/about-us-page.png) -->
 
 Below are screenrecordings of the site being responsive
 
