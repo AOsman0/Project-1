@@ -133,8 +133,9 @@ h1 {
   height: 100rem;
 }
 
-.title {
-  font-size: 20rem;
+.title-is-4 {
+  font-size: 3rem;
+  color: var(--cafe-au-lai);
 }
 
 .align-div-end {
@@ -174,7 +175,7 @@ h1 {
 }
 .title {
   font-size: 4rem;
-  color: rgb(101, 122, 192);
+  color: var(--);
 }
 .content {
   font-size: 2rem;
