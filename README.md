@@ -31,8 +31,11 @@ Below is the screen recording demonstrating a responsive layout.
 # Skills Gained 👨‍💻
 
 .Communication
+
 .Team Work
+
 .Time Management
+
 .Problem Solving Skills
 
 # Contributors
