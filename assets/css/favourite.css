@@ -1,3 +1,4 @@
+
 :root {
   --pale-spring-bud: #ccd5aeff;
   --pale-spring-bud-2: #e9edc9ff;
@@ -26,6 +27,7 @@
   --bole: #774936ff;
   --vivid-tangerine: #ffa69eff;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -103,6 +105,7 @@ body {
   border-radius: 3rem;
 }
 
+
 .book-favourites {
   margin-top: 15rem;
 }
@@ -178,21 +181,7 @@ body {
   width: 100%;
   text-align: center;
 }
-.btn {
-  font-size: 2rem;
-  border: solid 3px;
-  color: var(--antique-brass);
-  border-radius: 2rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  background-color: var(--cornsilk);
-  padding-bottom: 3rem;
-}
-.btn:hover {
-  background-color: green;
-  color: white;
-  cursor: pointer;
-}
+
 
 @media screen and (max-width: 500px) {
   .nav-anchor {
@@ -204,3 +193,137 @@ body {
   .card-horizontal {
   }
 }
+/* start of modal styles  */
+.close {
+  color: #aaaaaa;
+
+  position: relative;
+  left: 1%;
+  font-size: 2.8rem;
+  font-weight: bold;
+  top: 1%;
+  border: none;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.exit-styles {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.popup-container {
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: auto;
+}
+.h2 {
+  font-size: 3rem;
+  opacity: 0.7;
+}
+button {
+  background-color: rgb(9, 61, 8);
+  border: 0;
+  border-radius: 0.5rem;
+  color: rgb(171, 175, 175);
+  font-size: 1.4rem;
+  padding: 1rem 2.5rem;
+}
+.pop-up {
+  background-color: white;
+  width: 60rem;
+  max-width: 100;
+  padding: 3rem 5rem;
+  border-radius: 0.8;
+  overflow: auto;
+  max-height: 90vh;
+}
+
+.pop-up h1 {
+  margin: 0;
+}
+.pop-up p {
+  font-size: 1.4rem;
+  opacity: 0.7;
+}
+
+.popup-table {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  font-size: 1rem;
+}
+.title-picture {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+/* end of modal styles */
+/* start of confirm modal styles  */
+.confirm-container {
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.confirm {
+  background-color: white;
+  width: 40rem;
+  max-width: 100;
+  padding: 1rem 1.5rem;
+  border-radius: 0.8;
+  overflow: auto;
+  max-height: 70vh;
+}
+
+.confirm-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+.text-option {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.button-options {
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* end of confirm modal styles */

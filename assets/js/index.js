@@ -11,8 +11,16 @@ let bookLink = "";
 let trimmedDescription = "";
 let currentSearchResults = [];
 let favoriteBookList = [];
-
 let favoritesList = [];
+let isbn = "";
+let rating = "";
+let language = "";
+let bookLength = "";
+let categories = "";
+
+
+
+
 
 const readFromLocalStorage = () => {
   const currentQuote = localStorage.getItem("current-quote");
@@ -96,7 +104,7 @@ const fetchBookData = () => {
   const currentSearchURL = `https://www.googleapis.com/books/v1/volumes?q=${search}`;
 
   let items = [];
-
+currentSearchResults = [];
   fetch(currentSearchURL)
     .then(function (res) {
       return res.json();
@@ -171,14 +179,16 @@ const renderResult = () => {
           <b>DESCRIPTION: </b> ${trimmedDescription} ...
           </p>
           <div class="button-container">
-          <a class="waves-effect waves-light btn-small">More info</a>
+          <a class="waves-effect waves-light btn-small" id="more${i}">More info</a>
           <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
           </div>
         </div>
       </div>
     </div>
   </div>`);
-  $(`#${i}`).click(addButtonClick);
+  $(`#${i}`).click(renderConfirmModal);
+  $(`#more${i}`).click(fetchModalData);
+
 };
 // function to store answer in local storage
 const storeInLS = (key, value) => {
@@ -200,6 +210,9 @@ const initialiseLocalStorage = () => {
 //function to add to favourite list
 // TODO FIND A WAY TO TARGET ONLY ONE CARD ON EACH CLICK
 const addButtonClick = (event) => {
+
+  // create the model
+
   const target = event.target;
   const cardNum = target.id;
 
@@ -224,6 +237,240 @@ const addButtonClick = (event) => {
   // step 2:
   // save favoriteMovieList again in the local storage
 };
+const renderModal = () => {
+  $("main").append(`<div class="popup-container" id="popup-container">
+
+  <div class="pop-up">
+  
+  <div id="close" class="modal-content">
+  <span class="close">&times;</span>
+</div>
+
+<div>
+    <div class="title-picture">
+      <div>
+        <h1>${title}</h1>
+        <h2 class="h2">${author}</h2>
+      </div>
+      <div class="img-container">
+        <img
+        src="${image}"
+        
+          alt=""
+        />
+      </div>
+    </div>
+
+    <table class="popup-table">
+      <tr>
+        <th>ISBN</th>
+        <td>${isbn}</td>
+        <th>RATING</th>
+        <td>${rating}</td>
+      </tr>
+      <tr>
+        <th>CATEGORIES</th>
+        <td>${categories}</td>
+        <th>PAGE COUNT</th>
+        <td>${bookLength}</td>
+      </tr>
+      <tr>
+        <th>PUBLISHER</th>
+        <td>${publisher}</td>
+        <th>LANGUAGE</th>
+        <td>${language}</td>
+      </tr>
+      <tr>
+        <th>contributor</th>
+        <td>${author}</td>
+      </tr>
+    </table>
+
+    <h5>DESCRIPTION </h5> 
+    
+
+    <p>
+      ${description}
+    </p>
+   <div class="button-container">
+          
+          <a class="waves-effect waves-light btn-small" href="${bookLink}">preview</a>
+          </div>
+  </div>
+</div>`)
+$("#close").click(closeModal);
+window.onclick = function(event) {
+  console.log(event.target.id)
+  if (event.target.id == 'popup-container') {
+
+    
+  document.getElementById("popup-container").remove();
+  }
+}
+}
+
+const closeModal = () => {
+  document.getElementById("popup-container").remove();
+}
+const closeConfirmModal = () => {
+  console.log("modal closed");
+  document.getElementById("confirm-container").remove();
+}
+
+// function to render confirm modal 
+const renderConfirmModal = (event) => {
+  $("#main").append(`  <div class="confirm-container" id="confirm-container">
+  <div class="confirm">
+    <div id="close" class="modal-content">
+      <span class="close">&times;</span>
+    </div>
+
+    <div class="confirm-content">
+      <div class="title-container">
+        <h1 class="text-option">do you want to add this to favourites?</h1>
+      </div>
+
+      <div class="button-container">
+        <div class="button-options" id="yes">
+          <a class="waves-effect waves-light btn-small"
+            >yes</a
+          >
+        </div> 
+        <div class="button-options" id="closeModal">
+          <a class="waves-effect waves-light btn-small" >no</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`)
+$("#close").click(closeConfirmModal);
+$("#closeModal").click(closeConfirmModal);
+
+$("#yes").click(() =>{
+  const target = event.target;
+  const cardNum = target.id;
+  console.log(cardNum);
+ 
+  // we want to add this movie to the favoriteMovieList list
+  // step 1:
+  // fetch the existing favoriteMovieList from the local storage
+  const savedBook = currentSearchResults[cardNum];
+  console.log(savedBook);
+  // change color and text of button
+  const currentBtn = document.getElementById(cardNum);
+  currentBtn.setAttribute("class", "red");
+  currentBtn.textContent = "saved";
+  // check if the last came back as null or undefined
+
+  // append this movie to the favoriteMovieList
+  storeInLS("favoriteBook", savedBook);
+  closeConfirmModal();
+});
+
+window.onclick = function(event) {
+  console.log("clicked outside window: " + event.target.id)
+  if (event.target.id == 'confirm-container') {
+  document.getElementById("confirm-container").remove();
+  }
+}
+
+}
+// function to render confirm modal 
+const renderConfirmModalQuote = (event) => {
+  $("#main").append(`  <div class="confirm-container" id="confirm-container">
+  <div class="confirm">
+    <div id="close" class="modal-content">
+      <span class="close">&times;</span>
+    </div>
+
+    <div class="confirm-content">
+      <div class="title-container">
+        <h1 class="text-option">do you want to add this to favourites?</h1>
+      </div>
+
+      <div class="button-container">
+        <div class="button-options" id="addQuote">
+          <a class="waves-effect waves-light btn-small"
+            >yes</a
+          >
+        </div> 
+        <div class="button-options" id="closeModal">
+          <a class="waves-effect waves-light btn-small" >no</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`)
+$("#close").click(closeConfirmModal);
+$("#closeModal").click(closeConfirmModal);
+
+$("#addQuote").click(() =>{
+  plusButton();
+});
+
+window.onclick = function(event) {
+  console.log("clicked outside window: " + event.target.id)
+  if (event.target.id == 'confirm-container') {
+  document.getElementById("confirm-container").remove();
+  }
+}
+
+}
+const fetchModalData = (event) => {
+  
+  const target = event.target;
+  console.log(target)
+  const cardId = target.id;
+  console.log(cardId);
+  const cardNum = cardId.substring(4)
+  console.log(cardNum)
+  
+  
+ 
+  // alert user to saving information
+  // we want to add this movie to the favoriteMovieList list
+  // step 1:
+  // fetch the existing favoriteMovieList from the local storage
+  
+  let savedBook = currentSearchResults[cardNum];
+  console.log( savedBook)
+  items = savedBook
+  title =savedBook.volumeInfo.title;
+  console.log(title);
+  author = savedBook.volumeInfo.authors;
+  console.log(author);
+  publisher = savedBook.volumeInfo.publisher;
+  console.log(publisher);
+  if (!savedBook.volumeInfo.imageLinks) {
+    image = ".assets/images/placeholder.png";
+  } else {
+    image = savedBook.volumeInfo.imageLinks.thumbnail;
+  }
+  console.log(image);
+  description = savedBook.volumeInfo.description;
+  // variable to limit description character count
+  
+  bookLink =savedBook.volumeInfo.previewLink;
+  console.log(bookLink)
+  isbn = savedBook.volumeInfo.industryIdentifiers[0].identifier
+  rating = savedBook.volumeInfo.averageRating
+  language = savedBook.volumeInfo.language
+  bookLength = savedBook.volumeInfo.pageCount
+  console.log(bookLength)
+  categories = savedBook.volumeInfo.categories
+  
+  
+  console.log(bookLink);
+  let bookResults = [title, author, publisher, image, description, bookLink, isbn, rating, language, bookLength, categories];
+
+  console.log("book results" + bookResults);
+  renderModal(bookResults);
+  // render results card
+  
+}
+
 const renderSearchBanner = () => {
   $("#search-section")
     .append(`<h1 class="banner-title">library of Knowledge</h1>
@@ -268,13 +515,15 @@ const renderLandingPage = (quoteArray) => {
    </div>
  `);
 
-  $("#green-tick").click(plusButton);
+  $("#green-tick").click(renderConfirmModalQuote);
   $("#refresh-icon").click(refreshButtonClick);
 };
 const onLoad = () => {
   initialiseLocalStorage();
   fetchQuotesData();
-  renderSearchBanner();
+  renderSearchBanner(); 
+  
+
 };
 
 window.addEventListener("load", onLoad);

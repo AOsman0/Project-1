@@ -1,16 +1,7 @@
-//TODO find a way to link home page to search page
-const mainElement = document.getElementById("main");
-const resultsSection = document.getElementById("cards");
-const API_KEY = "AIzaSyAb1sWH5SP_pa3SpuWv9TXLKXk9X2NWwFE";
-let title = "";
-let author = "";
-let image = "";
-let publisher = "";
-let description = "";
-let bookLink = "";
-let trimmedDescription = "";
-let currentSearchResults = [];
-let favoriteBookList = [];
+
+
+
+      
 
 // function to handle form submission
 const handleFormSubmit = (event) => {
@@ -181,3 +172,4 @@ const onLoad = () => {
   renderResultsBanner();
 };
 window.addEventListener("load", onLoad);
+
