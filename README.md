@@ -19,10 +19,17 @@ Upon completion of there favourite book the user will be able to delete it from 
 
 Below are screenshots of desktop viewport.
 
-![screenshot-1]()
-![screenshot-2]()
-![screenshot-3]()
-![screenshot-4]()
+![screenshot-1](./assets/images/homepage1.png)
+![screenshot-2](./assets/images/homeepage2.png)
+![screenshot-3](./assets/images/save-quote-1.png)
+![screenshot-4](./assets/images/fav-quote-save.png)
+![screenshot-5](./assets/images/save-book.png)
+![screenshot-6](./assets/images/fav-book.png)
+![screenshot-7](./assets/images/about-us-page.png)
+
+Below are screenrecordings of the site being responsive
+
+![screenshot-8]()
 
 ## Screen-Recording
 
