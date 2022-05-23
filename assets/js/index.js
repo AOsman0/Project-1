@@ -248,7 +248,7 @@ const renderLandingPage = (quoteArray) => {
    <div id="quotes-container" class="quotes-container">
      <div class="quotes-head">
        <h2 class="quotes-header">
-         Quotes
+         Quotes To Inspire 🤔
          <div class="button-icons">
            <button class="plus-icon" id="green-tick">
              <i class="fa-solid fa-plus"></i>
