@@ -72,7 +72,9 @@ https://drive.google.com/drive/folders/1-XhHneRNkt_59kFvZIVcfdn2J9cbtLEP?usp=sha
 
 .CSS
 
-.BootStrap and other Frameworks
+.BootStrap
+
+.Materialize
 
 .VS Code
 
