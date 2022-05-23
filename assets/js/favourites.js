@@ -42,11 +42,10 @@ const fetchBooks = () => {
 
     // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
     title = savedBooks[i].volumeInfo.title;
-    console.log(title);
+
     author = savedBooks[i].volumeInfo.authors;
-    console.log(author);
+
     bookLink = savedBooks[i].volumeInfo.previewLink;
-    console.log(bookLink);
 
     if (!savedBooks[i].volumeInfo.imageLinks) {
       image = `./assets/images/placeholder.png`;
@@ -54,7 +53,7 @@ const fetchBooks = () => {
       image = savedBooks[i].volumeInfo.imageLinks.thumbnail;
     }
     let bookResults = [title, author, image];
-    console.log("book results" + bookResults);
+
     // render results card
     renderFavoriteBooks(bookResults);
   }
@@ -62,17 +61,14 @@ const fetchBooks = () => {
 
 const deleteCard = (event) => {
   const target = event.target;
-  console.log("id is: " + target.id);
 
   // this minus button will clear the div
 
   const fromLocalStorage = localStorage.getItem("favoriteQuotes"); // an array that has more than one objects
   // parse into json
   let parsedData = JSON.parse(fromLocalStorage);
-  console.log("parseData: " + parsedData);
+
   const temp = parsedData.splice(target.id, 1);
-  console.log("deleted: " + temp);
-  console.log("parsedData: " + parsedData);
 
   localStorage.setItem("favoriteQuotes", JSON.stringify(parsedData));
 
@@ -87,8 +83,12 @@ const deleteCard = (event) => {
 const minusButton = () => {
   // declare a minus icon
   const minusQuotesIcon = document.getElementById("i");
+
   $(`#${i}`).click(renderConfirmModalQuotes);
   console.log("minus has been clicked for Quotes:" + minusQuotesIcon);
+
+  $(`#${i}`).click(deleteCard);
+
 
   // this minus button will delete a card from local storage
 };
@@ -103,17 +103,14 @@ const minusButtonBooks = () => {
 
 const deleteBookCard = (event) => {
   const target = event.target;
-  console.log("id is: " + target.id);
 
   // this minus button will clear the div
 
   const bookFromLocalStorage = localStorage.getItem("favoriteBook"); // an array that has more than one objects
   // parse into json
   let parsedData = JSON.parse(bookFromLocalStorage);
-  console.log("parseData: " + parsedData);
+
   const temp = parsedData.splice(target.id, 1);
-  console.log("deleted: " + temp);
-  console.log("parsedData: " + parsedData);
 
   localStorage.setItem("favoriteBook", JSON.stringify(parsedData));
 
@@ -340,9 +337,13 @@ const fetchModalData = (event) => {
 // function to gather data for quotes
 const fetchQuotes = () => {
   //fetch data from local storage
+
   const quotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
   const savedQuotes = JSON.parse(quotes)
   console.log("saved quotes: " + savedQuotes);
+
+  const savedQuotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
+
 
   if (document.getElementById("book-favourites") !== null) {
     document.getElementById("book-favourites").remove();
@@ -357,15 +358,14 @@ const fetchQuotes = () => {
     // add this whole object to the currentSearchResults array
 
     // from the response cherry pick Title, AUTHOR, PUBLISHER DESCRIPTION and IMAGE
-    console.log("abc: " + savedQuotes[i]);
+
     const temp = JSON.parse(savedQuotes[i]);
     quote = temp.quote_text;
-    console.log("quote: " + quote);
+
     author = temp.author;
-    console.log("author: " + author);
 
     let bookResults = [quote, author];
-    console.log("book results" + bookResults);
+
     // render results card
     renderFavoriteQuotes(bookResults);
   }
@@ -384,8 +384,8 @@ const renderFavoriteBooks = () => {
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>title: ${title}</p>
-          <p>author: ${author}</p>
+          <p class="the-title">title: ${title}</p>
+          <p class="the-author">author: ${author}</p>
         </div>
         <div class="card-action">
           <a class="waves-effect waves-light blue btn-small" id="more${i}">read more</a>
@@ -402,18 +402,18 @@ const renderFavoriteBooks = () => {
 // function to render favourite quotes
 const renderFavoriteQuotes = () => {
   $("#book-favourites")
-    .append(`   <div id="fav-quotes" class="card-container col s12 m7">
+    .append(` <div id="fav-quotes" class="card-container col s12 m7">
     <div class="card horizontal">
       <!-- <div class="card-image">
         <img class="image" src="./assets/images/mountain.jpg" />
       </div> -->
       <div class="card-stacked">
         <div class="card-content">
-          <p>quotes: ${quote}</p>
-          <p>author: ${author}</p>
+          <p class="the-quote">quotes: ${quote}</p>
+          <p class="the-author">author: ${author}</p>
         </div>
        <div class="card-action">
-        <!-- <a class="waves-effect waves-light btn-small">Button</a> -->
+        <!-- <a class="waves-effesct waves-light btn-small">Button</a> -->
         <a
           class="delete-button btn-floating btn-small waves-effect waves-light red"
           ><i id= "${i}" class="material-icons">-</i></a

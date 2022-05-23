@@ -24,7 +24,7 @@ let categories = "";
 
 const readFromLocalStorage = () => {
   const currentQuote = localStorage.getItem("current-quote");
-  console.log("currentQuote: " + currentQuote);
+
   const favoritesListFromLS = localStorage.getItem("favoriteQuotes");
   // check if the favorites list is null or does it have any items
   if (favoritesListFromLS === null || favoritesListFromLS === undefined) {
@@ -36,11 +36,9 @@ const readFromLocalStorage = () => {
     // and then store it in the local storage
     // parse favoriteList to string
     localStorage.setItem("favoriteQuotes", JSON.stringify(favoritesList));
-    console.log("favoriteList: " + localStorage.getItem("favoriteQuotes"));
   } else {
     // when the list is not null
     let parsedFavoriteList = JSON.parse(favoritesListFromLS);
-    console.log("parsedFavoriteList: " + parsedFavoriteList);
 
     // lets push this quote to the favorites list
     // parse current quote before we push it
@@ -49,7 +47,6 @@ const readFromLocalStorage = () => {
 
     // store that list to the local storage
     localStorage.setItem("favoriteQuotes", JSON.stringify(parsedFavoriteList));
-    console.log("favoriteList: " + localStorage.getItem("favoriteQuotes"));
   }
 };
 
@@ -60,9 +57,7 @@ const plusButton = () => {
 const refreshButtonClick = () => {
   const refreshIcon = document.getElementById("refresh-icon");
   const quotesContainer = document.getElementById("quotes-container");
-  console.log("refresh-clicked" + refreshIcon);
   if (refreshIcon) {
-    console.log("enterifconditions");
     quotesContainer.remove();
     fetchQuotesData();
   }
@@ -72,7 +67,7 @@ const options = {
   method: "GET",
   headers: {
     "X-RapidAPI-Host": "quotelibapi.p.rapidapi.com",
-    "X-RapidAPI-Key": "48da7b9fcemshc5ff20a1dbaf8cap1255e2jsn3db6ac34e3d7",
+    "X-RapidAPI-Key": "7b8899a8b0msh104c350bc0a0a9cp12b8f3jsncc5b3cbda328",
   },
 };
 
@@ -94,12 +89,10 @@ const handleFormSubmit = (event) => {
   event.preventDefault();
   //get text input
   let search = document.getElementById("input-text").value;
-  console.log(search);
   //validate
 
   if (search) {
     // build object with full name and results
-    console.log("good search");
     // fetch data from API
     fetchBookData();
   } else {
@@ -108,10 +101,8 @@ const handleFormSubmit = (event) => {
 };
 const fetchBookData = () => {
   const search = document.getElementById("input-text").value;
-  console.log(search);
   const currentSearchURL = `https://www.googleapis.com/books/v1/volumes?q=${search}`;
 
-  console.log(currentSearchURL);
   let items = [];
 currentSearchResults = [];
   fetch(currentSearchURL)
@@ -161,12 +152,9 @@ currentSearchResults = [];
         var x = $(window).scrollTop();
         $("html, body").animate({ scrollTop: x + 800 });
       }
-      console.log(currentSearchResults);
       // now that we are done rendering the cards, lets push the currentSearchResult to local storage
     }),
-    function (error) {
-      console.log(error);
-    };
+    function (error) {};
 
   // function to render results cards
 };
@@ -227,14 +215,14 @@ const addButtonClick = (event) => {
 
   const target = event.target;
   const cardNum = target.id;
-  console.log(cardNum);
+
   // alert user to saving information
   alert("this book has been added to favourites");
   // we want to add this movie to the favoriteMovieList list
   // step 1:
   // fetch the existing favoriteMovieList from the local storage
   const savedBook = currentSearchResults[cardNum];
-  console.log(savedBook);
+
   // change color and text of button
   const currentBtn = document.getElementById(cardNum);
   currentBtn.setAttribute("class", "red");
@@ -507,7 +495,7 @@ const renderLandingPage = (quoteArray) => {
    <div id="quotes-container" class="quotes-container">
      <div class="quotes-head">
        <h2 class="quotes-header">
-         Quotes
+         Quotes To Inspire 🤔
          <div class="button-icons">
            <button class="plus-icon" id="green-tick">
              <i class="fa-solid fa-plus"></i>
